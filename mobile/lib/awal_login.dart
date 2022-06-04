@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/awal_login.dart';
+import 'package:mobile/login_page.dart';
 
 class AwalLogin extends StatelessWidget {
   const AwalLogin({Key? key}) : super(key: key);

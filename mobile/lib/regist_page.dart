@@ -25,7 +25,7 @@ class RegistPage extends StatelessWidget {
             ),
             actions: [],
             backgroundColor: Colors.white,
-            elevation: 0.0),
+            elevation: 0),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -115,4 +115,3 @@ class RegistPage extends StatelessWidget {
     );
   }
 }
-
