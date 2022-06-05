@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/awal_login.dart';
 
 class RegistPage extends StatelessWidget {
   const RegistPage({Key? key}) : super(key: key);
@@ -10,7 +11,9 @@ class RegistPage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
             leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context, true);
+              },
               icon: const Icon(Icons.arrow_back),
               color: Colors.black,
             ),

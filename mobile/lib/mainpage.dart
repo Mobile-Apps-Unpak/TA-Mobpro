@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/chat.dart';
-import 'package:mobile/screen/homepage.dart';
-import 'package:mobile/screen/checkout.dart';
-import 'package:mobile/screen/profile.dart';
-import 'package:mobile/screen/study.dart';
+import 'package:mobile/chat.dart';
+import 'package:mobile/homepage.dart';
+import 'package:mobile/checkout.dart';
+import 'package:mobile/profile.dart';
+import 'package:mobile/study.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -11,7 +11,7 @@ class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
