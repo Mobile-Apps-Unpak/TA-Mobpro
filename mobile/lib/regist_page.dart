@@ -11,10 +11,10 @@ class RegistPage extends StatelessWidget {
         appBar: AppBar(
             leading: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               color: Colors.black,
             ),
-            title: Padding(
+            title: const Padding(
               padding: EdgeInsets.only(left: 40),
               child: Text(
                 "Let's Gets Started",
@@ -23,17 +23,17 @@ class RegistPage extends StatelessWidget {
                 ),
               ),
             ),
-            actions: [],
+            actions: const [],
             backgroundColor: Colors.white,
             elevation: 0),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Text("log in to your account",
+              const Text("log in to your account",
                   style: TextStyle(fontSize: 12, color: Colors.grey)),
               Container(
                 height: 400,
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -96,18 +96,18 @@ class RegistPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 170,
               ),
               ElevatedButton(
                   onPressed: () {},
-                  child: Text("Register",
+                  child: const Text("Register",
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w300)),
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(150, 40),
-                      shape: StadiumBorder(),
-                      primary: Color.fromARGB(255, 255, 212, 76))),
+                      minimumSize: const Size(150, 40),
+                      shape: const StadiumBorder(),
+                      primary: const Color.fromARGB(255, 255, 212, 76))),
             ],
           ),
         ),

@@ -8,17 +8,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset("assets/logo_study2.png", width: 150),
-        backgroundColor: Color.fromARGB(255, 255, 212, 76),
+        backgroundColor: const Color.fromARGB(255, 255, 212, 76),
         elevation: 0,
       ),
       body: Stack(
         children: [
+          // ignore: avoid_unnecessary_containers
           Container(
             child: Column(children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 255, 212, 76),
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(50),
                         bottomRight: Radius.circular(50))),
                 //height: 245,
@@ -26,8 +27,8 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(left: 15),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 15),
+                      child: const Text(
                         "' Learning First '",
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(top: 30),
+                  margin: const EdgeInsets.only(top: 30),
                   //color: Colors.red,
                   child: Column(
                     children: [
@@ -63,7 +64,7 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: Container(
@@ -74,8 +75,8 @@ class HomePage extends StatelessWidget {
                                               ),
                                             ),
                                           ),
-                                          SizedBox(height: 5),
-                                          Text("Chat Member")
+                                          const SizedBox(height: 5),
+                                          const Text("Chat Member")
                                         ],
                                       ),
                                       Column(
@@ -87,7 +88,7 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: Image.asset(
@@ -96,13 +97,13 @@ class HomePage extends StatelessWidget {
                                               height: 5,
                                             ),
                                           ),
-                                          SizedBox(height: 5),
-                                          Text("Video")
+                                          const SizedBox(height: 5),
+                                          const Text("Video")
                                         ],
                                       )
                                     ],
                                   ),
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -116,7 +117,7 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: Image.asset(
@@ -125,8 +126,8 @@ class HomePage extends StatelessWidget {
                                               height: 5,
                                             ),
                                           ),
-                                          SizedBox(height: 5),
-                                          Text("Modul")
+                                          const SizedBox(height: 5),
+                                          const Text("Modul")
                                         ],
                                       ),
                                       Column(
@@ -138,7 +139,7 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: Image.asset(
@@ -147,8 +148,8 @@ class HomePage extends StatelessWidget {
                                               height: 5,
                                             ),
                                           ),
-                                          SizedBox(height: 5),
-                                          Text("Lainnya")
+                                          const SizedBox(height: 5),
+                                          const Text("Lainnya")
                                         ],
                                       )
                                     ],
@@ -166,14 +167,14 @@ class HomePage extends StatelessWidget {
             ]),
           ),
           Container(
-            padding: EdgeInsets.only(left: 30, right: 30),
-            margin: EdgeInsets.only(top: 200),
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            margin: const EdgeInsets.only(top: 200),
             //color: Colors.white,
             child: SizedBox(
               height: 35,
               child: TextField(
                   decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 fillColor: Colors.white,
                 filled: true,
                 labelText: 'Search',
@@ -183,8 +184,8 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 625),
-            padding: EdgeInsets.only(bottom: 10),
+            margin: const EdgeInsets.only(top: 625),
+            padding: const EdgeInsets.only(bottom: 10),
             height: 80,
             color: Colors.white,
             child: Row(
@@ -195,12 +196,12 @@ class HomePage extends StatelessWidget {
                     children: [
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.home_outlined,
                             size: 35,
                             color: Color.fromARGB(255, 252, 160, 43),
                           )),
-                      Text("Home",
+                      const Text("Home",
                           style: TextStyle(
                               color: Color.fromARGB(255, 252, 160, 43)))
                     ],
@@ -210,29 +211,29 @@ class HomePage extends StatelessWidget {
                     children: [
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.school_outlined,
                             size: 35,
                             color: Colors.grey,
                           )),
-                      Text(
+                      const Text(
                         "Study",
                         style: TextStyle(color: Colors.grey),
                       )
                     ],
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.payment,
                             size: 35,
                             color: Colors.grey,
                           )),
-                      Text(
+                      const Text(
                         "Payment",
                         style: TextStyle(color: Colors.grey),
                       )
@@ -243,12 +244,12 @@ class HomePage extends StatelessWidget {
                     children: [
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.person_outlined,
                             size: 35,
                             color: Colors.grey,
                           )),
-                      Text(
+                      const Text(
                         "Profile",
                         style: TextStyle(color: Colors.grey),
                       )
@@ -258,19 +259,19 @@ class HomePage extends StatelessWidget {
           ),
           Center(
             child: Container(
-                margin: EdgeInsets.only(top: 550),
-                padding: EdgeInsets.all(10),
+                margin: const EdgeInsets.only(top: 550),
+                padding: const EdgeInsets.all(10),
                 height: 70,
                 width: 70,
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(50)),
                 child: FloatingActionButton(
-                  backgroundColor: Color.fromARGB(255, 252, 160, 43),
+                  backgroundColor: const Color.fromARGB(255, 252, 160, 43),
                   onPressed: () {
                     // Respond to button press
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.add,
                     size: 40,
                   ),
