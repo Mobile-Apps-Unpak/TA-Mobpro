@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/chat.dart';
 import 'package:mobile/screen/homepage.dart';
-import 'package:mobile/screen/payment.dart';
+import 'package:mobile/screen/checkout.dart';
 import 'package:mobile/screen/profile.dart';
 import 'package:mobile/screen/study.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';

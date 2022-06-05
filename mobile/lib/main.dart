@@ -5,6 +5,8 @@ import 'package:mobile/login_page.dart';
 import 'package:mobile/regist_page.dart';
 import 'package:mobile/screen/homepage.dart';
 import 'package:mobile/screen/mainpage.dart';
+import 'package:mobile/modul.dart';
+import 'package:mobile/screen/payment.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: Payment(),
     );
   }
 }

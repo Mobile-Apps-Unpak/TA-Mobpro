@@ -6,191 +6,473 @@ class Payment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffd44c),
-      body: ListView(
+      body: Column(
         children: [
-          Container(
-            color: const Color(0xffffd44c),
-            height: 130,
-            child: const Center(
-              child: Text(
-                'Checkout',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w200,
-                ),
-              ),
-            ),
-          ),
-          Container(
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.yellow[700],
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(50),
-                            ),
-                          ),
-                          child: const Center(child: Text('Gold')),
+          Expanded(
+              flex: 2,
+              child: Container(
+                  color: Color(0xffffd44c),
+                  child: Center(
+                    child: Text(
+                      "Payment Method",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ))),
+          Expanded(
+              flex: 8,
+              child: Container(
+                //color: Colors.blue,
+                child: ListView(children: [
+                  Column(
+                    children: [
+                      Container(
+                        decoration: const BoxDecoration(
+                          //color: Colors.red,
+                          border: Border(
+                              bottom:
+                                  BorderSide(color: Colors.black, width: 0.5)),
                         ),
-                        const SizedBox(
-                          width: 20,
+                        //padding: EdgeInsets.only(bottom: 3),
+                        margin: EdgeInsets.only(
+                          left: 20,
                         ),
-                        Column(
-                          children: const [
-                            Text(
-                              'Payment',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                        //color: Colors.red,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              "assets/icon1_payment.png",
+                              width: 40,
+                              height: 40,
                             ),
                             SizedBox(
-                              height: 5,
+                              width: 10,
                             ),
                             Text(
-                              'Rp 500.000',
+                              "Bank Transfer",
                               style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 50),
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/bca_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Bank Transfer",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/mandiri_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Bank Mandiri",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/bni_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Bank BNI",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/bri_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Bank BRI",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/cimb_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Bank Cimn Niaga",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        'Total Pembayaran',
-                        style: TextStyle(
-                          fontSize: 18,
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          //color: Colors.red,
+                          border: Border(
+                              bottom:
+                                  BorderSide(color: Colors.black, width: 0.5)),
+                        ),
+                        //padding: EdgeInsets.only(bottom: 3),
+                        margin: EdgeInsets.only(
+                          left: 20,
+                        ),
+                        //color: Colors.red,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              "assets/icon2_payment.png",
+                              width: 40,
+                              height: 40,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "E-Money",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      Text(
-                        'Rp 500.000',
-                        style: TextStyle(
-                          fontSize: 18,
+                      Container(
+                        margin: EdgeInsets.only(left: 50),
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/dana_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Dana",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/gopay_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Gopay",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/ovo_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "OVO",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/shopeepay_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Shopee pay",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/linkaja_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Bank LinkAja",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          //color: Colors.red,
+                          border: Border(
+                              bottom:
+                                  BorderSide(color: Colors.black, width: 0.5)),
+                        ),
+                        //padding: EdgeInsets.only(bottom: 3),
+                        margin: EdgeInsets.only(
+                          left: 20,
+                        ),
+                        //color: Colors.red,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              "assets/icon3_payment.png",
+                              width: 40,
+                              height: 40,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Other Payment",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 50),
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/alfamart_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Alfamart / Alfamidi",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                //color: Colors.red,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.black, width: 0.5)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/indomaret_payment.png",
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Indomaret / i.Saku",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Metode Pembayaran',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Pilih Metode',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  Center(child: Image.asset('assets/logo_all.png')),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Center(child: Image.asset('assets/logo_all2.png')),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: 300,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset:
-                              const Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          alignment: Alignment.centerRight,
-                          height: 72,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 1),
-                            color: Colors.white,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: const [
-                                Text(
-                                  'Total Pembayaran',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  'Rp 500.000',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 72,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            color: Color(0xffFCA02B),
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
-                            ),
-                          ),
-                          child: const Text(
-                            'Buat Pesanan',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+                  )
+                ]),
+              )),
         ],
       ),
     );
