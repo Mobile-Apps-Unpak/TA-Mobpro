@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/awal_login.dart';
 import 'package:mobile/login_page.dart';
 
 class AwalLogin extends StatelessWidget {
@@ -10,23 +9,23 @@ class AwalLogin extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            scaffoldBackgroundColor: Color.fromARGB(255, 255, 212, 76)),
+            scaffoldBackgroundColor: const Color.fromARGB(255, 255, 212, 76)),
         home: Scaffold(
             body: Center(
           child: Column(children: [
             Expanded(
               flex: 7,
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(50),
                         bottomRight: Radius.circular(50))),
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(80, 100, 80, 0),
+                  margin: const EdgeInsets.fromLTRB(80, 100, 80, 0),
                   child: Column(children: [
                     Image.asset('vector.png', width: 250, height: 250),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Image.asset(
                       'logo_study.png',
                       width: 150,
@@ -39,34 +38,34 @@ class AwalLogin extends StatelessWidget {
             Expanded(
                 flex: 3,
                 child: Container(
-                  margin: EdgeInsets.all(50),
+                  margin: const EdgeInsets.all(50),
                   child: Column(
                     children: [
                       ElevatedButton(
                           onPressed: () {
                             Navigator.pushReplacement(context,
                                 MaterialPageRoute(builder: (context) {
-                              return LoginPage();
+                              return const LoginPage();
                             }));
                           },
-                          child: Text("LOG IN",
+                          child: const Text("LOG IN",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w300)),
                           style: ElevatedButton.styleFrom(
-                              minimumSize: Size(150, 40),
-                              shape: StadiumBorder(),
+                              minimumSize: const Size(150, 40),
+                              shape: const StadiumBorder(),
                               primary: Colors.white)),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       ElevatedButton(
                           onPressed: () {},
-                          child: Text("Register",
+                          child: const Text("Register",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w300)),
                           style: ElevatedButton.styleFrom(
-                              minimumSize: Size(150, 40),
-                              shape: StadiumBorder(),
+                              minimumSize: const Size(150, 40),
+                              shape: const StadiumBorder(),
                               primary: Colors.white))
                     ],
                   ),
