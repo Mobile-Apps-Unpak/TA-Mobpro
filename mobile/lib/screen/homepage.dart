@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/screen/chat.dart';
 import 'package:mobile/modul.dart';
 import 'package:mobile/screen/package.dart';
-import 'package:mobile/screen/study.dart';
+import 'package:mobile/screen/video.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
                                           onTap: () {
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
-                                                builder: (_) => const Study(),
+                                                builder: (_) => const Video(),
                                               ),
                                             );
                                           },
