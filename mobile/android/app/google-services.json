@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "333355870766",
+    "firebase_url": "https://mobprota-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "mobprota",
     "storage_bucket": "mobprota.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "333355870766-8ikrcpnbqb5v0a8r290l51i3sooh1jim.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "333355870766-fjfvtu4m06vpads48ds1j28rk88gm1sc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobile"
+              }
             }
           ]
         }

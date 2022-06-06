@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/mainpage.dart';
 import 'package:mobile/regist_page.dart';
+import 'package:mobile/utils/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,6 +13,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
 
     return Form(
@@ -44,14 +47,15 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         //TextField for Username
                         TextFormField(
-                          validator: (username) {
-                            if (username == null || username.isEmpty) {
+                          controller: emailController,
+                          validator: (email) {
+                            if (email == null || email.isEmpty) {
                               return 'Please enter username';
                             }
                             return null;
                           },
                           decoration: InputDecoration(
-                            hintText: 'Username',
+                            hintText: 'Email',
                             prefixIcon: const Icon(Icons.person),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
@@ -61,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(height: 20),
                         //TextField for Password
                         TextFormField(
+                          controller: passwordController,
                           validator: (password) {
                             if (password == null || password.isEmpty) {
                               return 'Please enter password';
@@ -91,8 +96,11 @@ class _LoginPageState extends State<LoginPage> {
                       shape: const StadiumBorder(),
                       primary: const Color.fromARGB(255, 255, 212, 76),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
+                        await AuthServices.signIn(emailController.text.trim(),
+                            passwordController.text.trim());
+
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (_) => const MainPage(),
