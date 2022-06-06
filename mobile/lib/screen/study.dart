@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/screen/video.dart';
 
 class Study extends StatelessWidget {
   const Study({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class Study extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffffd44c),
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: ListView(
           children: [
             Container(
@@ -105,7 +106,7 @@ class Study extends StatelessWidget {
                             Radius.circular(20),
                           ),
                         ),
-                        child: Image.asset('assets/vector_study3.png'),
+                        child: Image.asset('assets/vector_study4.png'),
                       ),
                       Container(
                         height: 157,
@@ -128,14 +129,20 @@ class Study extends StatelessWidget {
                                 style: TextStyle(fontSize: 20),
                               ),
                               const Text(
-                                'Belajar ga perlu ribet!, pelajari materi dengan video lesgfsarning!',
+                                'Belajar ga perlu ribet!, pelajari materi dengan video learning!',
                                 style: TextStyle(fontSize: 15),
                               ),
                               Container(
                                 alignment: Alignment.bottomRight,
                                 child: TextButton(
                                   child: const Text('Read More'),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (_) => const Video(),
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
                             ],

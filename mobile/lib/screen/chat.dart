@@ -16,7 +16,7 @@ class Chat extends StatelessWidget {
           ),
           Container(
             color: Colors.white,
-            height: MediaQuery.of(context).size.width * 1.2,
+            height: MediaQuery.of(context).size.width * 1.5,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
