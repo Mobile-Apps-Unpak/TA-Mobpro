@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/login_page.dart';
+import 'package:mobile/utils/auth_service.dart';
 
 class RegistPage extends StatefulWidget {
   const RegistPage({Key? key}) : super(key: key);
@@ -10,6 +10,12 @@ class RegistPage extends StatefulWidget {
 
 class _RegistPageState extends State<RegistPage> {
   final _formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
+  final schoolController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordConfirmationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +56,7 @@ class _RegistPageState extends State<RegistPage> {
                   children: [
                     //TextField Full Name
                     TextFormField(
+                      controller: nameController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -68,6 +75,7 @@ class _RegistPageState extends State<RegistPage> {
                     const SizedBox(height: 2),
                     //TextField Email
                     TextFormField(
+                      controller: emailController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -86,6 +94,7 @@ class _RegistPageState extends State<RegistPage> {
                     const SizedBox(height: 2),
                     //TextField Phone Number
                     TextFormField(
+                      controller: phoneController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -104,6 +113,7 @@ class _RegistPageState extends State<RegistPage> {
                     const SizedBox(height: 2),
                     //TextField School
                     TextFormField(
+                      controller: schoolController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -122,6 +132,7 @@ class _RegistPageState extends State<RegistPage> {
                     const SizedBox(height: 2),
                     //TextField Password
                     TextFormField(
+                      controller: passwordController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter password';
@@ -141,9 +152,14 @@ class _RegistPageState extends State<RegistPage> {
                     const SizedBox(height: 2),
                     //TextField Repeat Password
                     TextFormField(
+                      controller: passwordConfirmationController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter password';
+                        }
+
+                        if (value != passwordController.text) {
+                          return 'Password Tidak Sama!';
                         }
                         return null;
                       },
@@ -165,13 +181,11 @@ class _RegistPageState extends State<RegistPage> {
               ),
               //Button for Register
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => const LoginPage(),
-                      ),
-                    );
+                    await AuthServices.createUser(emailController.text.trim(),
+                            passwordController.text.trim())
+                        .then((value) => Navigator.pop(context));
                   }
                 },
                 child: const Text("Register",
