@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/chat.dart';
 import 'package:mobile/modul.dart';
+import 'package:mobile/screen/package.dart';
 import 'package:mobile/screen/study.dart';
 
 class HomePage extends StatelessWidget {
@@ -160,24 +161,33 @@ class HomePage extends StatelessWidget {
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          padding: const EdgeInsets.all(30),
-                                          height: 90,
-                                          width: 90,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(50),
-                                            color: const Color.fromARGB(
-                                                255, 253, 235, 179),
-                                          ),
-                                          child: Image.asset(
-                                            "assets/lainnya_home.png",
-                                            width: 5,
-                                            height: 5,
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (_) => const Package(),
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.all(30),
+                                            height: 90,
+                                            width: 90,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              color: const Color.fromARGB(
+                                                  255, 253, 235, 179),
+                                            ),
+                                            child: Image.asset(
+                                              "assets/lainnya_home.png",
+                                              width: 5,
+                                              height: 5,
+                                            ),
                                           ),
                                         ),
                                         const SizedBox(height: 5),
-                                        const Text("Lainnya")
+                                        const Text("Package")
                                       ],
                                     )
                                   ],

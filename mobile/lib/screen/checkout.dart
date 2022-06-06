@@ -60,7 +60,7 @@ class Payment extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              'Rp 500.000',
+                              'Rp 260.000',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
@@ -81,7 +81,7 @@ class Payment extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Rp 500.000',
+                        'Rp 260.000',
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -161,7 +161,7 @@ class Payment extends StatelessWidget {
                                   style: TextStyle(fontSize: 16),
                                 ),
                                 Text(
-                                  'Rp 500.000',
+                                  'Rp 260.000',
                                   style: TextStyle(fontSize: 16),
                                 ),
                               ],
