@@ -5,23 +5,23 @@ class SignSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme:
-          ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 255, 212, 76)),
-      home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.grey,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context, true);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.grey,
           ),
-          backgroundColor: Color.fromARGB(255, 255, 212, 76),
-          elevation: 0,
         ),
-        body: Container(
-            child: Column(
+        backgroundColor: const Color.fromARGB(255, 255, 212, 76),
+        elevation: 0,
+      ),
+      body: Container(
+        color: const Color.fromARGB(255, 255, 212, 76),
+        child: Column(
           children: [
             Expanded(
                 flex: 4,
@@ -29,14 +29,14 @@ class SignSuccess extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                        padding: EdgeInsets.only(left: 50, top: 40),
-                        child: Text(
-                          "Sign Up Success",
+                        padding: const EdgeInsets.only(left: 50, top: 40),
+                        child: const Text(
+                          "Sign Up Request",
                           style: TextStyle(fontSize: 17),
                         )),
                     Container(
-                      padding: EdgeInsets.only(top: 50),
-                      child: Center(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: const Center(
                         child: Text(
                           "Waiting Confirmation",
                           style: TextStyle(fontSize: 17, color: Colors.white),
@@ -51,7 +51,7 @@ class SignSuccess extends StatelessWidget {
                   color: Colors.white,
                 ))
           ],
-        )),
+        ),
       ),
     );
   }

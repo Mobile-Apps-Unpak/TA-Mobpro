@@ -11,7 +11,7 @@ class Profile extends StatelessWidget {
         children: [
           Image.asset('assets/study.png'),
           const SizedBox(
-            height: 15,
+            height: 45,
           ),
           Container(
             decoration: const BoxDecoration(

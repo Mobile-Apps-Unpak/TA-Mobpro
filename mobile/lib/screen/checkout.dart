@@ -115,7 +115,7 @@ class Payment extends StatelessWidget {
                     height: 25,
                   ),
                   Center(child: Image.asset('assets/logo_all.png')),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Center(child: Image.asset('assets/logo_all2.png')),
@@ -183,10 +183,11 @@ class Payment extends StatelessWidget {
                             'Buat Pesanan',
                             style: TextStyle(color: Colors.white),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
+                  const SizedBox(height: 75),
                 ],
               ),
             ),
