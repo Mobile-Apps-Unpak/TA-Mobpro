@@ -6,19 +6,32 @@ class Package extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: const Color(0xffFFD44C),
+        elevation: 0,
+      ),
       body: ListView(
         children: [
           Container(
             alignment: Alignment.center,
             color: const Color(0xffFFD44C),
-            height: MediaQuery.of(context).size.height * 0.20,
+            height: MediaQuery.of(context).size.height * 0.1,
             child: const Text(
               'Package',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w200),
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
