@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/video.dart';
+import 'package:mobile/modul.dart';
+import 'package:mobile/webview/video_webview.dart';
 
 class Study extends StatelessWidget {
   const Study({Key? key}) : super(key: key);
@@ -83,7 +84,13 @@ class Study extends StatelessWidget {
                                 alignment: Alignment.bottomRight,
                                 child: TextButton(
                                   child: const Text('Read More'),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (_) => const Modul(),
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
                             ],
@@ -139,7 +146,7 @@ class Study extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (_) => const Video(),
+                                        builder: (_) => const VideoView(),
                                       ),
                                     );
                                   },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/webview/modul_view.dart';
 
 class Modul extends StatelessWidget {
   const Modul({Key? key}) : super(key: key);
@@ -9,7 +10,9 @@ class Modul extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 255, 212, 76),
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(
             Icons.arrow_back,
             color: Colors.grey,
@@ -56,7 +59,13 @@ class Modul extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     primary: const Color.fromARGB(255, 255, 212, 105)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const ModulView(),
+                    ),
+                  );
+                },
                 child: const Text(
                   "Start Learn",
                   style: TextStyle(

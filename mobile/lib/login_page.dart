@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/mainpage.dart';
 import 'package:mobile/regist_page.dart';
 import 'package:mobile/utils/auth_service.dart';
 
@@ -11,10 +10,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
 
     return Form(
@@ -55,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                             return null;
                           },
                           decoration: InputDecoration(
-                            hintText: 'Email',
+                            hintText: 'E-mail',
                             prefixIcon: const Icon(Icons.person),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
@@ -100,12 +99,6 @@ class _LoginPageState extends State<LoginPage> {
                       if (_formKey.currentState!.validate()) {
                         await AuthServices.signIn(emailController.text.trim(),
                             passwordController.text.trim());
-
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => const MainPage(),
-                          ),
-                        );
                       }
                     },
                   ),

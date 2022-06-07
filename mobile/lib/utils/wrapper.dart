@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/cover.dart';
+import 'package:mobile/login_page.dart';
 import 'package:mobile/screen/mainpage.dart';
 
 class Wrapper extends StatelessWidget {
@@ -14,7 +14,7 @@ class Wrapper extends StatelessWidget {
         if (snapshot.hasData) {
           return const MainPage();
         } else {
-          return const Cover();
+          return const LoginPage();
         }
       },
     );

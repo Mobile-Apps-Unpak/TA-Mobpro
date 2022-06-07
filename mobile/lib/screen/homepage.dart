@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/screen/chat.dart';
 import 'package:mobile/modul.dart';
 import 'package:mobile/screen/package.dart';
-import 'package:mobile/screen/video.dart';
+import 'package:mobile/webview/video_webview.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -63,6 +63,76 @@ class HomePage extends StatelessWidget {
                                           onTap: () {
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
+                                                builder: (_) => const Modul(),
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.all(25),
+                                            height: 90,
+                                            width: 90,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              color: const Color.fromARGB(
+                                                  255, 253, 235, 179),
+                                            ),
+                                            child: Image.asset(
+                                              "assets/modul_home.png",
+                                              width: 5,
+                                              height: 5,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        const Text("Modul")
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const VideoView(),
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.all(20),
+                                            height: 90,
+                                            width: 90,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              color: const Color.fromARGB(
+                                                  255, 253, 235, 179),
+                                            ),
+                                            child: Image.asset(
+                                              "assets/video_home.png",
+                                              width: 5,
+                                              height: 5,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        const Text("Video")
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
                                                 builder: (_) => const Chat(),
                                               ),
                                             );
@@ -87,76 +157,7 @@ class HomePage extends StatelessWidget {
                                           ),
                                         ),
                                         const SizedBox(height: 5),
-                                        const Text("Chat Member"),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder: (_) => const Video(),
-                                              ),
-                                            );
-                                          },
-                                          child: Container(
-                                            padding: const EdgeInsets.all(20),
-                                            height: 90,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              color: const Color.fromARGB(
-                                                  255, 253, 235, 179),
-                                            ),
-                                            child: Image.asset(
-                                              "assets/video_home.png",
-                                              width: 5,
-                                              height: 5,
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(height: 5),
-                                        const Text("Video")
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(height: 20),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder: (_) => const Modul(),
-                                              ),
-                                            );
-                                          },
-                                          child: Container(
-                                            padding: const EdgeInsets.all(25),
-                                            height: 90,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              color: const Color.fromARGB(
-                                                  255, 253, 235, 179),
-                                            ),
-                                            child: Image.asset(
-                                              "assets/modul_home.png",
-                                              width: 5,
-                                              height: 5,
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(height: 5),
-                                        const Text("Modul")
+                                        const Text("Chat"),
                                       ],
                                     ),
                                     Column(

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -5,6 +6,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       backgroundColor: const Color(0xffffd44c),
       body: ListView(
@@ -38,18 +40,47 @@ class Profile extends StatelessWidget {
                   Stack(
                     children: [
                       Align(
-                          alignment: AlignmentDirectional.topEnd,
-                          child: ElevatedButton(
-                            style:
-                                ElevatedButton.styleFrom(primary: Colors.white),
-                            onPressed: () {},
-                            child: const Text(
-                              'Edit Profile',
-                              style: TextStyle(
-                                color: Colors.black54,
-                              ),
+                        alignment: AlignmentDirectional.topEnd,
+                        child: ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white),
+                          onPressed: () {},
+                          child: const Text(
+                            'Edit Profile',
+                            style: TextStyle(
+                              color: Colors.black54,
                             ),
-                          )),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional.topStart,
+                        child: ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white),
+                          onPressed: () => FirebaseAuth.instance.signOut(),
+                          child: const Text(
+                            'Logout',
+                            style: TextStyle(
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional.center,
+                        child: ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white),
+                          onPressed: () {},
+                          child: const Text(
+                            'Delete Account',
+                            style: TextStyle(
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   Column(
@@ -64,9 +95,9 @@ class Profile extends StatelessWidget {
                       const SizedBox(
                         height: 7,
                       ),
-                      const Text(
-                        'test@gmail.com',
-                        style: TextStyle(
+                      Text(
+                        user.email!,
+                        style: const TextStyle(
                           fontSize: 18,
                         ),
                       ),
