@@ -1,6 +1,7 @@
+// ignore_for_file: avoid_print
+
 import 'dart:ffi';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 
 class AuthServices {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -17,13 +18,9 @@ class AuthServices {
           .signInWithEmailAndPassword(email: emailAddress, password: password);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        if (kDebugMode) {
-          print('Email tidak ditemukan');
-        }
+        print('Email tidak ditemukan');
       } else if (e.code == 'wrong-password') {
-        if (kDebugMode) {
-          print('Password salah');
-        }
+        print('Password salah');
       }
     }
   }
@@ -36,17 +33,22 @@ class AuthServices {
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        if (kDebugMode) {
-          print('The password provided is too weak.');
-        }
+        print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        if (kDebugMode) {
-          print('The account already exists for that email.');
-        }
+        print('The account already exists for that email.');
       }
     } catch (e) {
-      if (kDebugMode) {
-        print(e);
+      print(e);
+    }
+  }
+
+  static Future deleteUser(emailAddress, password) async {
+    try {
+      await FirebaseAuth.instance.currentUser!.delete();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        print(
+            'The user must reauthenticate before this operation can be executed.');
       }
     }
   }

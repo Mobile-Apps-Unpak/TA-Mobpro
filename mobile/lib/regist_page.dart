@@ -83,7 +83,7 @@ class _RegistPageState extends State<RegistPage> {
                         return null;
                       },
                       decoration: InputDecoration(
-                        hintText: 'Email',
+                        hintText: 'E-mail',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
