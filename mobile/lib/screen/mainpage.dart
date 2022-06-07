@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
         controller: _controller,
         screens: const [
           HomePage(),
-          Payment(),
+          Checkout(),
           Study(),
           Chat(),
           Profile(),

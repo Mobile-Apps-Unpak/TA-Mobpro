@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/screen/payment.dart';
 
-class Payment extends StatelessWidget {
-  const Payment({Key? key}) : super(key: key);
+class Checkout extends StatelessWidget {
+  const Checkout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +102,13 @@ class Payment extends StatelessWidget {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const Payment(),
+                            ),
+                          );
+                        },
                         child: const Text(
                           'Pilih Metode',
                           style: TextStyle(
