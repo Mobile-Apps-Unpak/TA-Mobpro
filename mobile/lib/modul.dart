@@ -35,7 +35,7 @@ class Modul extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
                 const Text(
-                  "How to Become a great writer",
+                  "How to Become a great Programmer",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 15),

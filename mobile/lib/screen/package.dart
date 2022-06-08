@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/screen/checkout.dart';
 
 class Package extends StatelessWidget {
   const Package({Key? key}) : super(key: key);
@@ -222,7 +223,13 @@ class Package extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 150),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const Checkout(),
+                  ),
+                );
+              },
               child: const Text(
                 'Pay',
                 style: TextStyle(color: Colors.black87),

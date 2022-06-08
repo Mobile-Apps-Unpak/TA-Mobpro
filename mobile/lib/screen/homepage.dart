@@ -24,17 +24,10 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                       bottomRight: Radius.circular(50))),
-              //height: 245,
+              height: 280,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 15),
-                    child: const Text(
-                      "' Learning First '",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                  ),
                   Image.asset("assets/vector_home.png"),
                 ],
               ),
@@ -207,18 +200,13 @@ class HomePage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(left: 30, right: 30),
             margin: const EdgeInsets.only(top: 200),
+            height: 110,
             //color: Colors.white,
-            child: SizedBox(
-              height: 35,
-              child: TextField(
-                  decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.search),
-                fillColor: Colors.white,
-                filled: true,
-                labelText: 'Search',
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-              )),
+            child: const Center(
+              child: Text(
+                "' Learn Something New! '",
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
             ),
           ),
         ],

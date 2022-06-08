@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/utils/auth_service.dart';
+import 'package:mobile/utils/userdata.dart';
 
 class RegistPage extends StatefulWidget {
   const RegistPage({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class _RegistPageState extends State<RegistPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const Text("log in to your account",
+              const Text("Sign up your account",
                   style: TextStyle(fontSize: 12, color: Colors.grey)),
               Container(
                 height: 510,
@@ -183,9 +184,16 @@ class _RegistPageState extends State<RegistPage> {
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    await AuthServices.createUser(emailController.text.trim(),
-                            passwordController.text.trim())
-                        .then((value) => Navigator.pop(context));
+                    await AuthServices.createUser(
+                      emailController.text.trim(),
+                      passwordController.text.trim(),
+                    ).then((value) => Navigator.pop(context));
+
+                    await UserData.inputData(
+                        emailController.text.trim(),
+                        nameController.text.trim(),
+                        phoneController.text.trim(),
+                        schoolController.text.trim());
                   }
                 },
                 child: const Text("Register",
