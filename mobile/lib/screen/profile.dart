@@ -74,7 +74,6 @@ class _ProfileState extends State<Profile> {
         } catch (e) {
           debugPrint(e.toString());
         }
-        //Kembalikan tampilan loading jika terjadi sesuatu di luar dugaan.
         return const Center(child: CircularProgressIndicator());
       },
     );
@@ -82,6 +81,7 @@ class _ProfileState extends State<Profile> {
 
   Widget dataUser(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: Column(
