@@ -60,7 +60,7 @@ class _RegistPageState extends State<RegistPage> {
                       controller: nameController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return 'Please enter your full name';
                         }
                         return null;
                       },
@@ -79,7 +79,7 @@ class _RegistPageState extends State<RegistPage> {
                       controller: emailController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return 'Please enter email';
                         }
                         return null;
                       },
@@ -97,8 +97,10 @@ class _RegistPageState extends State<RegistPage> {
                     TextFormField(
                       controller: phoneController,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                        if (value == null ||
+                            value.isEmpty ||
+                            !RegExp(r'^[0-9]').hasMatch(value)) {
+                          return 'Please enter phone number';
                         }
                         return null;
                       },
@@ -136,7 +138,7 @@ class _RegistPageState extends State<RegistPage> {
                       controller: passwordController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter password';
+                          return 'Please enter school name';
                         }
                         return null;
                       },
@@ -187,13 +189,14 @@ class _RegistPageState extends State<RegistPage> {
                     await AuthServices.createUser(
                       emailController.text.trim(),
                       passwordController.text.trim(),
-                    ).then((value) => Navigator.pop(context));
+                    );
 
                     await UserData.inputData(
-                        emailController.text.trim(),
-                        nameController.text.trim(),
-                        phoneController.text.trim(),
-                        schoolController.text.trim());
+                      emailController.text.trim(),
+                      nameController.text.trim(),
+                      phoneController.text.trim(),
+                      schoolController.text.trim(),
+                    ).then((value) => Navigator.pop(context));
                   }
                 },
                 child: const Text("Register",

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/chat.dart';
 import 'package:mobile/screen/homepage.dart';
@@ -15,6 +16,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  User? user = FirebaseAuth.instance.currentUser!;
+
   Color mainColor = const Color(0xffffd44c);
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
@@ -25,12 +28,12 @@ class _MainPageState extends State<MainPage> {
       body: PersistentTabView(
         context,
         controller: _controller,
-        screens: const [
-          HomePage(),
-          Checkout(),
-          Study(),
-          Chat(),
-          Profile(),
+        screens: [
+          const HomePage(),
+          const Checkout(),
+          const Study(),
+          const Chat(),
+          Profile(user?.uid),
         ],
         items: _navBarsItems(),
         navBarStyle: NavBarStyle.style6,
