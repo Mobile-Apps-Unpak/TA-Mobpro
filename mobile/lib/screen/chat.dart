@@ -26,7 +26,10 @@ class Chat extends StatelessWidget {
                     children: [
                       const CircleAvatar(
                         radius: 30,
-                        //backgroundImage: AssetImage('assets/images/profile.png'),
+                        child: Icon(
+                          Icons.person,
+                          size: 40,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -40,7 +43,7 @@ class Chat extends StatelessWidget {
                           color: const Color(0xffc4c4c4),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Text('test'),
+                        child: const Text('Can\'t talk use whatsapp only'),
                       )
                     ],
                   ),
@@ -59,14 +62,17 @@ class Chat extends StatelessWidget {
                           color: const Color(0xffFED403),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Text('test'),
+                        child: const Text('Kenapa Dah?'),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       const CircleAvatar(
                         radius: 30,
-                        //backgroundImage: AssetImage('assets/images/profile.png'),
+                        child: Icon(
+                          Icons.person,
+                          size: 40,
+                        ),
                       ),
                     ],
                   ),
@@ -79,7 +85,10 @@ class Chat extends StatelessWidget {
                     children: [
                       const CircleAvatar(
                         radius: 30,
-                        //backgroundImage: AssetImage('assets/images/profile.png'),
+                        child: Icon(
+                          Icons.person,
+                          size: 40,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -93,7 +102,7 @@ class Chat extends StatelessWidget {
                           color: const Color(0xffc4c4c4),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Text('test'),
+                        child: const Text('Disuruh Fahrul'),
                       )
                     ],
                   ),
@@ -112,14 +121,17 @@ class Chat extends StatelessWidget {
                           color: const Color(0xffFED403),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Text('test'),
+                        child: const Text('Oke bang'),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       const CircleAvatar(
                         radius: 30,
-                        //backgroundImage: AssetImage('assets/images/profile.png'),
+                        child: Icon(
+                          Icons.person,
+                          size: 40,
+                        ),
                       ),
                     ],
                   ),
