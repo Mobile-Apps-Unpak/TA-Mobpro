@@ -1,12 +1,21 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile/screen/edit_profile.dart';
+import 'package:mobile/utils/userdata.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
   @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  @override
   Widget build(BuildContext context) {
     User? user = FirebaseAuth.instance.currentUser!;
+
     return Scaffold(
       backgroundColor: const Color(0xffffd44c),
       body: ListView(
@@ -39,6 +48,9 @@ class Profile extends StatelessWidget {
                           size: 80,
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * .05,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,30 +88,7 @@ class Profile extends StatelessWidget {
                           height: 7,
                         ),
                         const Text(
-                          'peron1',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 5),
-                          height: 2,
-                          color: const Color(0xffFCA02B),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        const Text(
-                          'Address',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 7,
-                        ),
-                        const Text(
-                          'jalan kenangan no 1',
+                          'name',
                           style: TextStyle(
                             fontSize: 18,
                           ),
@@ -163,7 +152,7 @@ class Profile extends StatelessWidget {
                     Stack(
                       children: [
                         Container(
-                          margin: const EdgeInsets.symmetric(vertical: 25),
+                          margin: const EdgeInsets.symmetric(vertical: 30),
                           child: Row(
                             children: [
                               Container(
@@ -173,7 +162,8 @@ class Profile extends StatelessWidget {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         primary: Colors.amber),
-                                    onPressed: () {},
+                                    onPressed: () =>
+                                        FirebaseAuth.instance.signOut(),
                                     child: const Text(
                                       'Logout',
                                       style: TextStyle(
@@ -191,7 +181,11 @@ class Profile extends StatelessWidget {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         primary: Colors.red),
-                                    onPressed: () {},
+                                    onPressed: () async {
+                                      await UserData.deleteData();
+                                      FirebaseAuth.instance.currentUser
+                                          ?.delete();
+                                    },
                                     child: const Text(
                                       'Delete Account',
                                       style: TextStyle(
@@ -208,7 +202,13 @@ class Profile extends StatelessWidget {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         primary: Colors.amber),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (_) => const EditProfile(),
+                                        ),
+                                      );
+                                    },
                                     child: const Text(
                                       'Edit Profile',
                                       style: TextStyle(
