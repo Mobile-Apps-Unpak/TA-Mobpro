@@ -4,9 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserData {
-  static final firebaseUser = FirebaseAuth.instance.currentUser;
-
   static Future inputData(email, name, phone, school) async {
+    var firebaseUser = FirebaseAuth.instance.currentUser;
     FirebaseFirestore.instance.collection("users").doc(firebaseUser?.uid).set({
       "email": email,
       "name": name,
@@ -19,6 +18,7 @@ class UserData {
   }
 
   static Future deleteData() async {
+    var firebaseUser = FirebaseAuth.instance.currentUser;
     FirebaseFirestore.instance
         .collection("users")
         .doc(firebaseUser?.uid)
@@ -29,6 +29,7 @@ class UserData {
   }
 
   static Future updateData(name, phone, school) async {
+    var firebaseUser = FirebaseAuth.instance.currentUser;
     FirebaseFirestore.instance
         .collection("users")
         .doc(firebaseUser?.uid)
