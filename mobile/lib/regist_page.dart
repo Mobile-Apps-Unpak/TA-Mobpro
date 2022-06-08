@@ -137,8 +137,10 @@ class _RegistPageState extends State<RegistPage> {
                     TextFormField(
                       controller: passwordController,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter school name';
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 8) {
+                          return 'input minimum 8 character';
                         }
                         return null;
                       },
@@ -158,7 +160,7 @@ class _RegistPageState extends State<RegistPage> {
                       controller: passwordConfirmationController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter password';
+                          return 'Please enter confirmation password';
                         }
 
                         if (value != passwordController.text) {
