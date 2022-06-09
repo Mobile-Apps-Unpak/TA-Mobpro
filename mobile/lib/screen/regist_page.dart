@@ -20,6 +20,8 @@ class _RegistPageState extends State<RegistPage> {
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Form(
       key: _formKey,
       child: Scaffold(
@@ -32,9 +34,9 @@ class _RegistPageState extends State<RegistPage> {
               icon: const Icon(Icons.arrow_back),
               color: Colors.black,
             ),
-            title: const Padding(
-              padding: EdgeInsets.only(left: 40),
-              child: Text(
+            title: Padding(
+              padding: EdgeInsets.only(left: w * .125),
+              child: const Text(
                 "Let's Gets Started",
                 style: TextStyle(
                   color: Colors.black,
@@ -47,13 +49,14 @@ class _RegistPageState extends State<RegistPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const Text("Sign up your account",
-                  style: TextStyle(fontSize: 12, color: Colors.grey)),
+              const Text(
+                "Sign up your account",
+                style: TextStyle(fontSize: 12, color: Colors.grey),
+              ),
               Container(
-                height: 510,
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.symmetric(
+                    vertical: h * 0.04, horizontal: w * 0.05),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     //TextField Full Name
                     TextFormField(
@@ -69,11 +72,11 @@ class _RegistPageState extends State<RegistPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 10.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 10.0),
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    SizedBox(height: h * .03),
                     //TextField Email
                     TextFormField(
                       controller: emailController,
@@ -88,11 +91,11 @@ class _RegistPageState extends State<RegistPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 10.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 10.0),
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    SizedBox(height: h * .03),
                     //TextField Phone Number
                     TextFormField(
                       controller: phoneController,
@@ -109,11 +112,11 @@ class _RegistPageState extends State<RegistPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 10.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 10.0),
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    SizedBox(height: h * .03),
                     //TextField School
                     TextFormField(
                       controller: schoolController,
@@ -128,11 +131,11 @@ class _RegistPageState extends State<RegistPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 10.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 10.0),
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    SizedBox(height: h * .03),
                     //TextField Password
                     TextFormField(
                       controller: passwordController,
@@ -140,7 +143,7 @@ class _RegistPageState extends State<RegistPage> {
                         if (value == null ||
                             value.isEmpty ||
                             value.length < 8) {
-                          return 'input minimum 8 character';
+                          return 'Input minimum 8 character';
                         }
                         return null;
                       },
@@ -150,11 +153,11 @@ class _RegistPageState extends State<RegistPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 10.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 10.0),
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    SizedBox(height: h * .03),
                     //TextField Repeat Password
                     TextFormField(
                       controller: passwordConfirmationController,
@@ -174,40 +177,40 @@ class _RegistPageState extends State<RegistPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 10.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 10.0),
+                      ),
+                    ),
+                    SizedBox(height: h * .03),
+
+                    //Button for Register
+                    ElevatedButton(
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          await AuthServices.createUser(
+                            emailController.text.trim(),
+                            passwordController.text.trim(),
+                          );
+
+                          await UserData.inputData(
+                            emailController.text.trim(),
+                            nameController.text.trim(),
+                            phoneController.text.trim(),
+                            schoolController.text.trim(),
+                          ).then((value) => Navigator.pop(context));
+                        }
+                      },
+                      child: const Text("Register",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300)),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(150, 40),
+                        shape: const StadiumBorder(),
+                        primary: const Color.fromARGB(255, 255, 212, 76),
                       ),
                     ),
                   ],
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              //Button for Register
-              ElevatedButton(
-                onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
-                    await AuthServices.createUser(
-                      emailController.text.trim(),
-                      passwordController.text.trim(),
-                    );
-
-                    await UserData.inputData(
-                      emailController.text.trim(),
-                      nameController.text.trim(),
-                      phoneController.text.trim(),
-                      schoolController.text.trim(),
-                    ).then((value) => Navigator.pop(context));
-                  }
-                },
-                child: const Text("Register",
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w300)),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(150, 40),
-                  shape: const StadiumBorder(),
-                  primary: const Color.fromARGB(255, 255, 212, 76),
                 ),
               ),
             ],

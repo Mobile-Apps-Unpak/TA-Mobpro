@@ -26,24 +26,22 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(80, 100, 80, 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //Logo Vector
-              Image.asset('assets/vector.png', width: 250, height: 250),
-              const SizedBox(height: 10),
-              Image.asset(
-                //Logo Text
-                'assets/logo_study.png',
-                width: 150,
-                height: 150,
-              )
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            //Logo Vector
+            Image.asset('assets/vector.png', width: w * 0.6, height: h * 0.3),
+            Image.asset(
+              //Logo Text
+              'assets/logo_study.png',
+              width: w * 0.3,
+              height: w * 0.2,
+            )
+          ],
         ),
       ),
     );

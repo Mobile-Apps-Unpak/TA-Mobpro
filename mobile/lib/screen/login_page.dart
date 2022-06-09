@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/regist_page.dart';
+import 'package:mobile/screen/regist_page.dart';
 import 'package:mobile/utils/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,11 +10,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
 
     return Form(
       key: _formKey,
@@ -24,15 +26,15 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Column(
                 children: [
-                  const SizedBox(height: 70),
+                  SizedBox(height: h * .1),
                   Image.asset('assets/vector_login.png',
-                      width: 250, height: 250),
-                  const SizedBox(height: 20),
+                      width: w * 0.6, height: h * 0.3),
+                  SizedBox(height: h * .02),
                   const Text(
                     'Welcome back!',
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: h * .0115),
                   const Text(
                     'log in to your account',
                     style: TextStyle(
@@ -41,7 +43,8 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.grey),
                   ),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+                    padding: EdgeInsets.fromLTRB(
+                        w * .09, h * .025, w * .09, h * .025),
                     child: Column(
                       children: [
                         //TextField for Username
@@ -49,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                           controller: emailController,
                           validator: (email) {
                             if (email == null || email.isEmpty) {
-                              return 'Please enter username';
+                              return 'Please enter E-mail';
                             }
                             return null;
                           },
@@ -61,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: h * .022),
                         //TextField for Password
                         TextFormField(
                           controller: passwordController,
@@ -91,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.black, fontWeight: FontWeight.w300),
                     ),
                     style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(150, 40),
+                      minimumSize: Size(w * 0.38, h * 0.055),
                       shape: const StadiumBorder(),
                       primary: const Color.fromARGB(255, 255, 212, 76),
                     ),
@@ -102,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                       }
                     },
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: h * .025),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

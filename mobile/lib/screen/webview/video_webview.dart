@@ -1,5 +1,5 @@
-import 'package:mobile/webview/menu.dart';
-import 'package:mobile/webview/video_view_stack.dart';
+import 'package:mobile/screen/webview/menu.dart';
+import 'package:mobile/screen/webview/video_view_stack.dart';
 
 import 'package:flutter/material.dart';
 import 'dart:async';

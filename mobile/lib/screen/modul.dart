@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/webview/modul_view.dart';
+import 'package:mobile/screen/webview/modul_view.dart';
 
 class Modul extends StatelessWidget {
   const Modul({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 212, 76),
       appBar: AppBar(
@@ -33,12 +35,12 @@ class Modul extends StatelessWidget {
                   "Chapter 1",
                   style: TextStyle(fontSize: 19),
                 ),
-                const SizedBox(height: 25),
+                SizedBox(height: h * .02),
                 const Text(
                   "How to Become a great Programmer",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(height: 15),
+                SizedBox(height: h * .02),
                 Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -51,9 +53,9 @@ class Modul extends StatelessWidget {
           ),
           Center(
             child: Container(
-              margin: const EdgeInsets.only(top: 170),
-              height: 40,
-              width: 170,
+              margin: EdgeInsets.only(top: h * .4),
+              height: h * .05,
+              width: w * .5,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/modul.dart';
-import 'package:mobile/webview/video_webview.dart';
+import 'package:mobile/screen/modul.dart';
+import 'package:mobile/screen/webview/video_webview.dart';
 
 class Study extends StatelessWidget {
   const Study({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color(0xffffd44c),
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        margin: EdgeInsets.symmetric(horizontal: h * .02, vertical: w * .05),
         child: ListView(
           children: [
             Container(
@@ -26,12 +28,12 @@ class Study extends StatelessWidget {
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: h * .01,
                   ),
                   Container(
-                    height: 100,
-                    width: 330,
+                    height: h * .1,
+                    width: w * 1,
                     decoration: const BoxDecoration(
                       color: Color(0xffF5F7F9),
                       borderRadius: BorderRadius.all(
@@ -40,14 +42,14 @@ class Study extends StatelessWidget {
                     ),
                     child: Image.asset('assets/vector_study2.png'),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: h * .02,
                   ),
                   Row(
                     children: [
                       Container(
-                        height: 190,
-                        width: 155,
+                        height: h * .25,
+                        width: w * .4,
                         decoration: const BoxDecoration(
                           color: Color(0xffF5F7F9),
                           borderRadius: BorderRadius.all(
@@ -57,8 +59,8 @@ class Study extends StatelessWidget {
                         child: Image.asset('assets/vector_study3.png'),
                       ),
                       Container(
-                        height: 157,
-                        width: 194,
+                        height: h * .2,
+                        width: w * .45,
                         decoration: const BoxDecoration(
                           color: Color(0xffF5F7F9),
                           borderRadius: BorderRadius.only(
@@ -67,7 +69,8 @@ class Study extends StatelessWidget {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.symmetric(
+                              vertical: h * .005, horizontal: w * .005),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,14 +102,14 @@ class Study extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: h * .02,
                   ),
                   Row(
                     children: [
                       Container(
-                        height: 190,
-                        width: 155,
+                        height: h * .25,
+                        width: w * .4,
                         decoration: const BoxDecoration(
                           color: Color(0xffF5F7F9),
                           borderRadius: BorderRadius.all(
@@ -116,8 +119,8 @@ class Study extends StatelessWidget {
                         child: Image.asset('assets/vector_study4.png'),
                       ),
                       Container(
-                        height: 157,
-                        width: 194,
+                        height: h * .2,
+                        width: w * .45,
                         decoration: const BoxDecoration(
                           color: Color(0xffF5F7F9),
                           borderRadius: BorderRadius.only(
@@ -126,7 +129,8 @@ class Study extends StatelessWidget {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.symmetric(
+                              vertical: h * .005, horizontal: w * .005),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,

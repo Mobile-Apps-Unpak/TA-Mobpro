@@ -6,13 +6,15 @@ class Checkout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color(0xffffd44c),
       body: ListView(
         children: [
           Container(
             color: const Color(0xffffd44c),
-            height: 130,
+            height: h * 0.2,
             child: const Center(
               child: Text(
                 'Checkout',
@@ -35,18 +37,18 @@ class Checkout extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          height: 100,
-                          width: 100,
+                          height: h * 0.12,
+                          width: w * 0.24,
                           decoration: BoxDecoration(
                             color: Colors.yellow[700],
                             borderRadius: const BorderRadius.all(
-                              Radius.circular(50),
+                              Radius.circular(100),
                             ),
                           ),
                           child: const Center(child: Text('Gold')),
                         ),
-                        const SizedBox(
-                          width: 20,
+                        SizedBox(
+                          width: w * .05,
                         ),
                         Column(
                           children: const [
@@ -89,8 +91,8 @@ class Checkout extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 5,
+                  SizedBox(
+                    height: h * .01,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,19 +120,19 @@ class Checkout extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 25,
+                  SizedBox(
+                    height: h * .02,
                   ),
                   Center(child: Image.asset('assets/logo_all.png')),
-                  const SizedBox(
-                    height: 5,
+                  SizedBox(
+                    height: h * .02,
                   ),
                   Center(child: Image.asset('assets/logo_all2.png')),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: h * .04,
                   ),
                   Container(
-                    width: 300,
+                    width: w * .76,
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                       boxShadow: [
@@ -147,8 +149,8 @@ class Checkout extends StatelessWidget {
                       children: [
                         Container(
                           alignment: Alignment.centerRight,
-                          height: 72,
-                          width: 200,
+                          height: h * .1,
+                          width: w * .5,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black, width: 1),
                             color: Colors.white,
@@ -177,8 +179,8 @@ class Checkout extends StatelessWidget {
                         ),
                         Container(
                           alignment: Alignment.center,
-                          height: 72,
-                          width: 100,
+                          height: h * .1,
+                          width: w * .25,
                           decoration: const BoxDecoration(
                             color: Color(0xffFCA02B),
                             borderRadius: BorderRadius.only(
@@ -194,7 +196,7 @@ class Checkout extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 75),
+                  SizedBox(height: h * .05),
                 ],
               ),
             ),

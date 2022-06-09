@@ -5,25 +5,25 @@ class Chat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color(0xffffd44c),
-      body: ListView(
-        children: [
-          Container(
-            color: const Color(0xffffd44c),
-            height: 130,
-            child: Image.asset('assets/study.png'),
-          ),
-          Container(
-            color: Colors.white,
-            height: MediaQuery.of(context).size.width * 1.5,
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text('Chat Tutor'),
+        backgroundColor: const Color(0xffffd44c),
+        elevation: 0,
+      ),
+      body: Stack(
+        children: <Widget>[
+          SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                  alignment: Alignment.topLeft,
                   child: Row(
-                    children: [
+                    children: <Widget>[
                       const CircleAvatar(
                         radius: 30,
                         child: Icon(
@@ -31,14 +31,14 @@ class Chat extends StatelessWidget {
                           size: 40,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: w * .02,
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         alignment: Alignment.centerLeft,
-                        width: 200,
-                        height: 50,
+                        width: w * .5,
+                        height: h * .07,
                         decoration: BoxDecoration(
                           color: const Color(0xffc4c4c4),
                           borderRadius: BorderRadius.circular(10),
@@ -48,24 +48,24 @@ class Chat extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 20),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
                         padding: const EdgeInsets.all(10),
                         alignment: Alignment.centerLeft,
-                        width: 200,
-                        height: 50,
+                        width: w * .5,
+                        height: h * .07,
                         decoration: BoxDecoration(
                           color: const Color(0xffFED403),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Text('Kenapa Dah?'),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: w * .02,
                       ),
                       const CircleAvatar(
                         radius: 30,
@@ -77,10 +77,8 @@ class Chat extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20,
-                  ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                   child: Row(
                     children: [
                       const CircleAvatar(
@@ -90,14 +88,14 @@ class Chat extends StatelessWidget {
                           size: 40,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: w * .02,
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         alignment: Alignment.centerLeft,
-                        width: 200,
-                        height: 50,
+                        width: w * .5,
+                        height: h * .07,
                         decoration: BoxDecoration(
                           color: const Color(0xffc4c4c4),
                           borderRadius: BorderRadius.circular(10),
@@ -107,24 +105,24 @@ class Chat extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 20),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
                         padding: const EdgeInsets.all(10),
                         alignment: Alignment.centerLeft,
-                        width: 200,
-                        height: 50,
+                        width: w * .5,
+                        height: h * .07,
                         decoration: BoxDecoration(
                           color: const Color(0xffFED403),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Text('Oke bang'),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: w * .02,
                       ),
                       const CircleAvatar(
                         radius: 30,
@@ -136,29 +134,32 @@ class Chat extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Flexible(
-                      child: IconButton(
-                        icon: const Icon(Icons.camera_alt),
-                        onPressed: () {},
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      child: const TextField(
-                        decoration: InputDecoration(hintText: 'Enter message'),
-                      ),
-                    ),
-                    Flexible(
-                      child: IconButton(
-                        icon: const Icon(Icons.send),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Flexible(
+                  child: IconButton(
+                    icon: const Icon(Icons.camera_alt),
+                    onPressed: () {},
+                  ),
+                ),
+                SizedBox(
+                  width: w * 0.75,
+                  child: const TextField(
+                    decoration: InputDecoration(hintText: 'Enter message'),
+                  ),
+                ),
+                Flexible(
+                  child: IconButton(
+                    icon: const Icon(Icons.send),
+                    onPressed: () {},
+                  ),
                 ),
               ],
             ),

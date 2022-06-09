@@ -6,6 +6,8 @@ class Package extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -25,14 +27,15 @@ class Package extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             color: const Color(0xffFFD44C),
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: h * 0.1,
             child: const Text(
               'Package',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w200),
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            margin:
+                EdgeInsets.symmetric(horizontal: w * .05, vertical: h * .02),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -40,8 +43,8 @@ class Package extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: h * 0.15,
+                      width: w * 0.2,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: const Color(0xffE2A042),
@@ -68,8 +71,8 @@ class Package extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: h * 0.15,
+                      width: w * 0.2,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: const Color(0xffDBE4EB),
@@ -96,8 +99,8 @@ class Package extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: h * 0.15,
+                      width: w * 0.2,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: const Color(0xffFFC100),
@@ -124,8 +127,9 @@ class Package extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            margin:
+                EdgeInsets.symmetric(horizontal: w * .05, vertical: h * .02),
+            padding: EdgeInsets.symmetric(horizontal: w * .01),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -140,8 +144,8 @@ class Package extends StatelessWidget {
                   child: InkWell(
                     onTap: () {},
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      padding: EdgeInsets.symmetric(horizontal: w * .03),
+                      height: h * 0.1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
@@ -166,8 +170,8 @@ class Package extends StatelessWidget {
                   child: InkWell(
                     onTap: () {},
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      padding: EdgeInsets.symmetric(horizontal: w * .03),
+                      height: h * 0.1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
@@ -192,8 +196,8 @@ class Package extends StatelessWidget {
                   child: InkWell(
                     onTap: () {},
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      padding: EdgeInsets.symmetric(horizontal: w * .03),
+                      height: h * 0.1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
@@ -217,11 +221,11 @@ class Package extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: h * .01,
           ),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 150),
+            margin: EdgeInsets.symmetric(horizontal: w * .3),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(

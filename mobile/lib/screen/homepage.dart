@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/chat.dart';
-import 'package:mobile/modul.dart';
+import 'package:mobile/screen/modul.dart';
 import 'package:mobile/screen/package.dart';
-import 'package:mobile/webview/video_webview.dart';
+import 'package:mobile/screen/webview/video_webview.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("assets/logo_study2.png", width: 150),
+        title: Image.asset("assets/logo_study2.png", width: w * 0.4),
         backgroundColor: const Color.fromARGB(255, 255, 212, 76),
         elevation: 0,
       ),
@@ -24,7 +26,7 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                       bottomRight: Radius.circular(50))),
-              height: 280,
+              height: h * 0.35,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -34,7 +36,7 @@ class HomePage extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                margin: const EdgeInsets.only(top: 30),
+                margin: EdgeInsets.only(top: h * .03),
                 //color: Colors.red,
                 child: Column(
                   children: [
@@ -42,7 +44,7 @@ class HomePage extends StatelessWidget {
                       child: ListView(
                         children: [
                           SizedBox(
-                            height: 300,
+                            height: h * 0.4,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -62,23 +64,23 @@ class HomePage extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: const EdgeInsets.all(25),
-                                            height: 90,
-                                            width: 90,
+                                            height: h * 0.12,
+                                            width: w * 0.24,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(50),
+                                                  BorderRadius.circular(100),
                                               color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: Image.asset(
                                               "assets/modul_home.png",
-                                              width: 5,
-                                              height: 5,
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(height: 5),
-                                        const Text("Modul")
+                                        SizedBox(height: h * 0.02),
+                                        const Text(
+                                          "Modul",
+                                        )
                                       ],
                                     ),
                                     Column(
@@ -94,28 +96,26 @@ class HomePage extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: const EdgeInsets.all(20),
-                                            height: 90,
-                                            width: 90,
+                                            height: h * 0.12,
+                                            width: w * 0.24,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(50),
+                                                  BorderRadius.circular(100),
                                               color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: Image.asset(
                                               "assets/video_home.png",
-                                              width: 5,
-                                              height: 5,
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(height: 5),
+                                        SizedBox(height: h * 0.02),
                                         const Text("Video")
                                       ],
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 20),
+                                SizedBox(height: h * 0.05),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -132,24 +132,22 @@ class HomePage extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: const EdgeInsets.all(20),
-                                            height: 90,
-                                            width: 90,
+                                            height: h * 0.12,
+                                            width: w * 0.24,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(50),
+                                                  BorderRadius.circular(100),
                                               color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: SizedBox(
-                                              width: 10,
-                                              height: 10,
                                               child: Image.asset(
                                                 "assets/chat_home.png",
                                               ),
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(height: 5),
+                                        SizedBox(height: h * 0.02),
                                         const Text("Chat"),
                                       ],
                                     ),
@@ -165,22 +163,20 @@ class HomePage extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: const EdgeInsets.all(30),
-                                            height: 90,
-                                            width: 90,
+                                            height: h * 0.12,
+                                            width: w * 0.24,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(50),
+                                                  BorderRadius.circular(100),
                                               color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
                                             child: Image.asset(
                                               "assets/lainnya_home.png",
-                                              width: 5,
-                                              height: 5,
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(height: 5),
+                                        SizedBox(height: h * 0.02),
                                         const Text("Package")
                                       ],
                                     )
@@ -198,9 +194,8 @@ class HomePage extends StatelessWidget {
             )
           ]),
           Container(
-            padding: const EdgeInsets.only(left: 30, right: 30),
-            margin: const EdgeInsets.only(top: 200),
-            height: 110,
+            margin: EdgeInsets.only(top: h * .25),
+            height: h * 0.15,
             //color: Colors.white,
             child: const Center(
               child: Text(
