@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/chat.dart';
 import 'package:mobile/screen/homepage.dart';
 import 'package:mobile/screen/checkout.dart';
 import 'package:mobile/screen/profile.dart';
+import 'package:mobile/screen/settings.dart';
 import 'package:mobile/screen/study.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
           const HomePage(),
           const Checkout(),
           const Study(),
-          const Chat(),
+          const Settings(),
           Profile(user?.uid),
         ],
         items: _navBarsItems(),
@@ -62,8 +62,8 @@ class _MainPageState extends State<MainPage> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.chat_bubble),
-        title: ("Chat"),
+        icon: const Icon(CupertinoIcons.settings),
+        title: ("Settings"),
         activeColorPrimary: mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),

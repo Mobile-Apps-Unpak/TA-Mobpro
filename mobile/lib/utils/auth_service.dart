@@ -41,14 +41,11 @@ class AuthServices {
     }
   }
 
-  static Future deleteUser(emailAddress, password) async {
+  static Future updatePassword(newPassword) async {
     try {
-      await FirebaseAuth.instance.currentUser!.delete();
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'requires-recent-login') {
-        print(
-            'The user must reauthenticate before this operation can be executed.');
-      }
+      await FirebaseAuth.instance.currentUser?.updatePassword(newPassword);
+    } catch (e) {
+      print(e);
     }
   }
 }

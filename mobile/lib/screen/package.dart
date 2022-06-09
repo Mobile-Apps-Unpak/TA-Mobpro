@@ -19,20 +19,12 @@ class Package extends StatelessWidget {
             color: Colors.black,
           ),
         ),
+        title: const Text('Package'),
         backgroundColor: const Color(0xffFFD44C),
         elevation: 0,
       ),
       body: ListView(
         children: [
-          Container(
-            alignment: Alignment.center,
-            color: const Color(0xffFFD44C),
-            height: h * 0.1,
-            child: const Text(
-              'Package',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w200),
-            ),
-          ),
           Container(
             margin:
                 EdgeInsets.symmetric(horizontal: w * .05, vertical: h * .02),

@@ -143,7 +143,7 @@ class _RegistPageState extends State<RegistPage> {
                         if (value == null ||
                             value.isEmpty ||
                             value.length < 8) {
-                          return 'Input minimum 8 character';
+                          return 'Password need at least 8 Character';
                         }
                         return null;
                       },
@@ -167,7 +167,7 @@ class _RegistPageState extends State<RegistPage> {
                         }
 
                         if (value != passwordController.text) {
-                          return 'Password Tidak Sama!';
+                          return 'Password Doesn\'t match';
                         }
                         return null;
                       },
