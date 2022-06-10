@@ -5,6 +5,7 @@ import 'package:mobile/screen/change_password.dart';
 import 'package:mobile/screen/contact_us.dart';
 import 'package:mobile/screen/edit_profile.dart';
 import 'package:mobile/utils/userdata.dart';
+import 'dart:io';
 
 class Settings extends StatefulWidget {
   final String? id;
@@ -51,14 +52,10 @@ class _SettingsState extends State<Settings> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    title: const Text('Edit Profile'),
-                    leading: const Icon(Icons.edit),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
+                  ListItem(
+                    listname: 'Edit Profile',
+                    listicon: const Icon(Icons.edit),
+                    onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => EditProfile(widget.id),
@@ -66,14 +63,10 @@ class _SettingsState extends State<Settings> {
                       );
                     },
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    title: const Text('Change Password'),
-                    leading: const Icon(Icons.password_sharp),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
+                  ListItem(
+                    listname: 'Change Password',
+                    listicon: const Icon(Icons.password),
+                    onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => const ChangePassword(),
@@ -81,23 +74,14 @@ class _SettingsState extends State<Settings> {
                       );
                     },
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    title: const Text('Logout'),
-                    leading: const Icon(Icons.logout),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () => FirebaseAuth.instance.signOut(),
-                  ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    title: const Text('Delete Account'),
-                    leading: const Icon(Icons.delete),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
+                  ListItem(
+                      listname: 'Logout',
+                      listicon: const Icon(Icons.logout),
+                      onPressed: () => FirebaseAuth.instance.signOut()),
+                  ListItem(
+                    listname: 'Delete Account',
+                    listicon: const Icon(Icons.delete_forever),
+                    onPressed: () {
                       showDialog(
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
@@ -149,14 +133,10 @@ class _SettingsState extends State<Settings> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    title: const Text('Contact Us'),
-                    leading: const Icon(Icons.mail),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
+                  ListItem(
+                    listname: 'Contact Us',
+                    listicon: const Icon(Icons.phone_enabled_rounded),
+                    onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => const ContactUs(),
@@ -164,14 +144,10 @@ class _SettingsState extends State<Settings> {
                       );
                     },
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    title: const Text('App Info'),
-                    leading: const Icon(Icons.info_outline),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
+                  ListItem(
+                    listname: 'App Info',
+                    listicon: const Icon(Icons.info),
+                    onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => const AppInfo(),
@@ -186,5 +162,30 @@ class _SettingsState extends State<Settings> {
         ),
       ),
     );
+  }
+}
+
+class ListItem extends StatelessWidget {
+  const ListItem({
+    Key? key,
+    required this.listname,
+    required this.listicon,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final String listname;
+  final Icon listicon;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        title: Text(listname),
+        leading: listicon,
+        trailing: const Icon(Icons.arrow_forward_ios),
+        onTap: onPressed);
   }
 }

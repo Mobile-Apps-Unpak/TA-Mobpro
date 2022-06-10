@@ -19,8 +19,8 @@ class Checkout extends StatelessWidget {
               child: Text(
                 'Checkout',
                 style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w200,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ),
@@ -37,8 +37,8 @@ class Checkout extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          height: h * 0.12,
-                          width: w * 0.24,
+                          height: 70,
+                          width: 70,
                           decoration: BoxDecoration(
                             color: Colors.yellow[700],
                             borderRadius: const BorderRadius.all(

@@ -67,7 +67,7 @@ class _ProfileState extends State<Profile> {
 
   Widget userProfile(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
-    return Column(
+    return ListView(
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * .7,
@@ -88,96 +88,123 @@ class _ProfileState extends State<Profile> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .05,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //Email
-                    const Text(
-                      'Email',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.white70,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          children: [
+                            ItemList(
+                              tittle: 'email',
+                              value: email,
+                              icons: Icons.email,
+                            ),
+                            Box(h: h),
+                            ItemList(
+                              tittle: 'Full Name',
+                              value: name,
+                              icons: Icons.person,
+                            ),
+                            Box(h: h),
+                            ItemList(
+                              tittle: 'School',
+                              value: school,
+                              icons: Icons.school,
+                            ),
+                            Box(h: h),
+                            ItemList(
+                              tittle: 'Phone',
+                              value: phone,
+                              icons: Icons.phone,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: h * .015,
-                    ),
-                    Text(
-                      email,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    SizedBox(
-                      height: h * .04,
-                    ),
-                    //Fullname
-                    const Text(
-                      'Full Name',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: h * .015,
-                    ),
-                    Text(
-                      name,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    SizedBox(
-                      height: h * .04,
-                    ),
-                    //School
-                    const Text(
-                      'School',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: h * .015,
-                    ),
-                    Text(
-                      school,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    SizedBox(
-                      height: h * .04,
-                    ),
-                    //Phone
-                    const Text(
-                      'Phone',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: h * .015,
-                    ),
-                    Text(
-                      phone,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    SizedBox(
-                      height: h * .04,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
       ],
+    );
+  }
+}
+
+class Box extends StatelessWidget {
+  const Box({
+    Key? key,
+    required this.h,
+  }) : super(key: key);
+
+  final double h;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: h * .015,
+    );
+  }
+}
+
+class ItemList extends StatelessWidget {
+  const ItemList({
+    Key? key,
+    required this.icons,
+    required this.tittle,
+    required this.value,
+  }) : super(key: key);
+
+  final IconData icons;
+  final String tittle;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+    return Container(
+      color: Colors.white70,
+      padding: EdgeInsets.symmetric(horizontal: w * .020, vertical: h * .010),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            icons,
+            size: 30,
+            color: Colors.grey,
+          ),
+          SizedBox(width: w * .050),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                tittle,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: h * .020,
+              ),
+              Text(
+                value,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
