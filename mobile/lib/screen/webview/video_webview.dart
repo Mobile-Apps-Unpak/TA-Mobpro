@@ -26,6 +26,7 @@ class _VideoViewAppState extends State<VideoView> {
           NavigationControls(controller: controller),
           Menu(controller: controller),
         ],
+        elevation: 0,
       ),
       body: VideoViewStack(controller: controller),
     );

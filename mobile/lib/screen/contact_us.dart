@@ -21,27 +21,27 @@ class _ContactUsState extends State<ContactUs> {
     return Form(
       key: _formKey,
       child: Scaffold(
+        backgroundColor: Colors.grey[100],
         appBar: AppBar(
-            //Button Back to Previous Page
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context, true);
-              },
-              icon: const Icon(Icons.arrow_back),
+          //Button Back to Previous Page
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context, true);
+            },
+            icon: const Icon(Icons.arrow_back),
+            color: Colors.black,
+          ),
+          title: const Text(
+            "Contact Us",
+            style: TextStyle(
               color: Colors.black,
             ),
-            title: Padding(
-              padding: EdgeInsets.only(left: w * .175),
-              child: const Text(
-                "Contact Us",
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            actions: const [],
-            backgroundColor: Colors.white,
-            elevation: 0),
+          ),
+          actions: const [],
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         body: Column(
           children: [
             const Text(
@@ -86,8 +86,7 @@ class _ContactUsState extends State<ContactUs> {
                         style: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.w300)),
                     style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(150, 40),
-                      shape: const StadiumBorder(),
+                      minimumSize: const Size(120, 40),
                       primary: const Color.fromARGB(255, 255, 212, 76),
                     ),
                   ),

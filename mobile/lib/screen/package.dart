@@ -10,6 +10,7 @@ class Package extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -19,8 +20,11 @@ class Package extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        title: const Text('Package'),
-        backgroundColor: const Color(0xffFFD44C),
+        title: const Text(
+          'Package',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: ListView(

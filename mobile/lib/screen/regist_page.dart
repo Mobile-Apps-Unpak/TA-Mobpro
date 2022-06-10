@@ -26,7 +26,7 @@ class _RegistPageState extends State<RegistPage> {
       key: _formKey,
       child: Scaffold(
         appBar: AppBar(
-            //Button Back to Previous Page
+            centerTitle: true,
             leading: IconButton(
               onPressed: () {
                 Navigator.pop(context, true);
@@ -34,13 +34,10 @@ class _RegistPageState extends State<RegistPage> {
               icon: const Icon(Icons.arrow_back),
               color: Colors.black,
             ),
-            title: Padding(
-              padding: EdgeInsets.only(left: w * .125),
-              child: const Text(
-                "Let's Gets Started",
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+            title: const Text(
+              "Let's Gets Started",
+              style: TextStyle(
+                color: Colors.black,
               ),
             ),
             actions: const [],

@@ -10,8 +10,19 @@ class Chat extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Chat Tutor'),
-        backgroundColor: const Color(0xffffd44c),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context, true);
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.black,
+        ),
+        centerTitle: true,
+        title: const Text(
+          'Chat Tutor',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: Stack(

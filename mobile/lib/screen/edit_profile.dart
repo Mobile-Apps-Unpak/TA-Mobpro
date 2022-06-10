@@ -35,9 +35,21 @@ class _EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Edit Profile'),
-        backgroundColor: const Color(0xffffd44c),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.black,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          'Edit Profile',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: ListView(
@@ -140,7 +152,9 @@ class _EditProfileState extends State<EditProfile> {
               Align(
                 alignment: AlignmentDirectional.center,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.amber),
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color.fromARGB(255, 255, 212, 76),
+                  ),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       setState(() {

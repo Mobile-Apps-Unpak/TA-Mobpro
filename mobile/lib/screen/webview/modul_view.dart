@@ -23,6 +23,7 @@ class _ModulViewAppState extends State<ModulView> {
         actions: [
           NavigationControls(controller: controller),
         ],
+        elevation: 0,
       ),
       body: ModulViewStack(controller: controller),
     );

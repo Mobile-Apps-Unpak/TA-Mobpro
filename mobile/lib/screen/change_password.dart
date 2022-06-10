@@ -19,9 +19,21 @@ class _ChangePasswordState extends State<ChangePassword> {
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Change Password'),
-        backgroundColor: const Color(0xffffd44c),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context, true);
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.black,
+        ),
+        title: const Text(
+          'Change Password',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: Form(
@@ -76,7 +88,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                   Align(
                     alignment: AlignmentDirectional.center,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.amber),
+                      style: ElevatedButton.styleFrom(
+                          primary: const Color.fromARGB(255, 255, 212, 76)),
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           setState(
