@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/modul.dart';
+import 'package:mobile/screen/list_modul.dart';
 import 'package:mobile/screen/webview/video_webview.dart';
 
 class Study extends StatelessWidget {
-  const Study({Key? key}) : super(key: key);
+  final String? id;
+  const Study(this.id, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +91,7 @@ class Study extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (_) => const Modul(),
+                                        builder: (_) => ListModul(id),
                                       ),
                                     );
                                   },

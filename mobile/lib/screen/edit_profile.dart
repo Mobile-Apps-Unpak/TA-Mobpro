@@ -157,6 +157,7 @@ class _EditProfileState extends State<EditProfile> {
                     if (_formKey.currentState!.validate()) {
                       setState(() {
                         UserData.updateData(
+                                widget.id,
                                 _nameController.text.trim(),
                                 _phoneController.text.trim(),
                                 _schoolController.text.trim())

@@ -3,7 +3,9 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 
 class ModulViewStack extends StatefulWidget {
-  const ModulViewStack({required this.controller, Key? key}) : super(key: key);
+  final String? url;
+  const ModulViewStack(this.url, {required this.controller, Key? key})
+      : super(key: key);
 
   final Completer<WebViewController> controller;
 
@@ -19,7 +21,7 @@ class _ModulViewStackState extends State<ModulViewStack> {
     return Stack(
       children: [
         WebView(
-          initialUrl: 'https://io.google/2022',
+          initialUrl: widget.url,
           onWebViewCreated: (webViewController) {
             widget.controller.complete(webViewController);
           },

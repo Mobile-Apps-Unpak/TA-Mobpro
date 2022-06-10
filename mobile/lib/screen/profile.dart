@@ -13,10 +13,10 @@ class _ProfileState extends State<Profile> {
   final CollectionReference users =
       FirebaseFirestore.instance.collection('users');
 
-  late String email;
-  late String name;
-  late String phone;
-  late String school;
+  String email = '';
+  String name = '';
+  String phone = '';
+  String school = '';
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         centerTitle: true,
         title: const Text(

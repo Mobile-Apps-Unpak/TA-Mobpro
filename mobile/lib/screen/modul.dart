@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mobile/screen/webview/modul_view.dart';
 
 class Modul extends StatelessWidget {
-  const Modul({Key? key}) : super(key: key);
+  const Modul(this.id, this.index, this.title, this.url, {Key? key})
+      : super(key: key);
+
+  final String? id;
+  final String? index;
+  final String? title;
+  final String? url;
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +33,19 @@ class Modul extends StatelessWidget {
         children: [
           Container(
             //color: Colors.blue,
-            padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
+            padding: EdgeInsets.fromLTRB(w * .08, h * .06, w * .08, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Chapter 1",
-                  style: TextStyle(fontSize: 19),
+                Text(
+                  'Chapter ' + index!,
+                  style: const TextStyle(fontSize: 19),
                 ),
                 SizedBox(height: h * .02),
-                const Text(
-                  "How to Become a great Programmer",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                Text(
+                  title!,
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: h * .02),
                 Container(
@@ -61,10 +68,10 @@ class Modul extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     primary: const Color.fromARGB(255, 255, 212, 105)),
-                onPressed: () {
+                onPressed: () async {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) => const ModulView(),
+                      builder: (_) => ModulView(url),
                     ),
                   );
                 },

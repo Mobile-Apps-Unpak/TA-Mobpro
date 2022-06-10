@@ -17,22 +17,16 @@ class UserData {
     });
   }
 
-  static Future deleteData() async {
-    var firebaseUser = FirebaseAuth.instance.currentUser;
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(firebaseUser?.uid)
-        .delete()
-        .then((_) {
+  static Future deleteData(id) async {
+    FirebaseFirestore.instance.collection("users").doc(id).delete().then((_) {
       print("success!");
     });
   }
 
-  static Future updateData(name, phone, school) async {
-    var firebaseUser = FirebaseAuth.instance.currentUser;
+  static Future updateData(id, name, phone, school) async {
     FirebaseFirestore.instance
         .collection("users")
-        .doc(firebaseUser?.uid)
+        .doc(id)
         .update({"name": name, "phone": phone, "school": school}).then((_) {
       print("success!");
     });

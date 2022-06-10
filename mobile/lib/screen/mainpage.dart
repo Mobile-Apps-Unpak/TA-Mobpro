@@ -29,9 +29,9 @@ class _MainPageState extends State<MainPage> {
         context,
         controller: _controller,
         screens: [
-          const HomePage(),
+          HomePage(user?.uid),
           const Checkout(),
-          const Study(),
+          Study(user?.uid),
           Settings(user?.uid),
           Profile(user?.uid),
         ],

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/chat.dart';
-import 'package:mobile/screen/modul.dart';
+import 'package:mobile/screen/list_modul.dart';
 import 'package:mobile/screen/package.dart';
 import 'package:mobile/screen/webview/video_webview.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final String? id;
+  const HomePage(this.id, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
                                           onTap: () {
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
-                                                builder: (_) => const Modul(),
+                                                builder: (_) => ListModul(id),
                                               ),
                                             );
                                           },

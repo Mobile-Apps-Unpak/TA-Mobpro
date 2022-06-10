@@ -5,7 +5,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'navigation_controls.dart';
 
 class ModulView extends StatefulWidget {
-  const ModulView({Key? key}) : super(key: key);
+  final String? url;
+  const ModulView(this.url, {Key? key}) : super(key: key);
 
   @override
   State<ModulView> createState() => _ModulViewAppState();
@@ -34,7 +35,7 @@ class _ModulViewAppState extends State<ModulView> {
         ],
         elevation: 0,
       ),
-      body: ModulViewStack(controller: controller),
+      body: ModulViewStack(widget.url, controller: controller),
     );
   }
 }

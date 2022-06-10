@@ -5,7 +5,6 @@ import 'package:mobile/screen/change_password.dart';
 import 'package:mobile/screen/contact_us.dart';
 import 'package:mobile/screen/edit_profile.dart';
 import 'package:mobile/utils/userdata.dart';
-import 'dart:io';
 
 class Settings extends StatefulWidget {
   final String? id;
@@ -75,9 +74,10 @@ class _SettingsState extends State<Settings> {
                     },
                   ),
                   ListItem(
-                      listname: 'Logout',
-                      listicon: const Icon(Icons.logout),
-                      onPressed: () => FirebaseAuth.instance.signOut()),
+                    listname: 'Logout',
+                    listicon: const Icon(Icons.logout),
+                    onPressed: () => FirebaseAuth.instance.signOut(),
+                  ),
                   ListItem(
                     listname: 'Delete Account',
                     listicon: const Icon(Icons.delete_forever),
@@ -92,7 +92,9 @@ class _SettingsState extends State<Settings> {
                           actions: [
                             TextButton(
                                 onPressed: () async {
-                                  await UserData.deleteData().then(
+                                  FirebaseAuth.instance.currentUser!.delete();
+
+                                  await UserData.deleteData(widget.id).then(
                                     (value) => ScaffoldMessenger.of(context)
                                         .showSnackBar(
                                       const SnackBar(
@@ -101,8 +103,6 @@ class _SettingsState extends State<Settings> {
                                       ),
                                     ),
                                   );
-                                  FirebaseAuth.instance.currentUser!.delete();
-                                  Navigator.pop(context);
                                 },
                                 child: const Text('Yes')),
                             TextButton(
