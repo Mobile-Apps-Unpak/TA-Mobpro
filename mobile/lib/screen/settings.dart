@@ -45,7 +45,7 @@ class _SettingsState extends State<Settings> {
               alignment: Alignment.center,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.white70,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -127,7 +127,7 @@ class _SettingsState extends State<Settings> {
               alignment: Alignment.center,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.white70,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(

@@ -43,20 +43,6 @@ class _VideoViewStackState extends State<VideoViewStack> {
               },
             );
           },
-          navigationDelegate: (navigation) {
-            final host = Uri.parse(navigation.url).host;
-            if (host.contains('https://io.google/2022')) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'Blocking navigation to $host',
-                  ),
-                ),
-              );
-              return NavigationDecision.prevent;
-            }
-            return NavigationDecision.navigate;
-          },
           javascriptMode: JavascriptMode.unrestricted,
         ),
         if (loadingPercentage < 100)

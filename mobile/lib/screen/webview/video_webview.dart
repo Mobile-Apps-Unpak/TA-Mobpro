@@ -1,4 +1,3 @@
-import 'package:mobile/screen/webview/menu.dart';
 import 'package:mobile/screen/webview/video_view_stack.dart';
 
 import 'package:flutter/material.dart';
@@ -32,7 +31,6 @@ class _VideoViewAppState extends State<VideoView> {
         backgroundColor: Colors.transparent,
         actions: [
           NavigationControls(controller: controller),
-          Menu(controller: controller),
         ],
         elevation: 0,
       ),
