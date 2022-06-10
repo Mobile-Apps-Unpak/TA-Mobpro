@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
           const HomePage(),
           const Checkout(),
           const Study(),
-          const Settings(),
+          Settings(user?.uid),
           Profile(user?.uid),
         ],
         items: _navBarsItems(),

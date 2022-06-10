@@ -18,8 +18,17 @@ class _ModulViewAppState extends State<ModulView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Modul'),
-        backgroundColor: const Color.fromARGB(255, 255, 212, 76),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.pop(context),
+          color: Colors.black,
+        ),
+        title: const Text(
+          'Modul',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
         actions: [
           NavigationControls(controller: controller),
         ],

@@ -100,8 +100,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        await AuthServices.signIn(emailController.text.trim(),
-                            passwordController.text.trim());
+                        await AuthServices.signIn(
+                          emailController.text.trim(),
+                          passwordController.text.trim(),
+                        );
                       }
                     },
                   ),

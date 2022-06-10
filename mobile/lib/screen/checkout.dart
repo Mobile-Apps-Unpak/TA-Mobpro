@@ -14,7 +14,7 @@ class Checkout extends StatelessWidget {
         children: [
           Container(
             color: const Color(0xffffd44c),
-            height: h * 0.2,
+            height: h * 0.21,
             child: const Center(
               child: Text(
                 'Checkout',
@@ -73,23 +73,6 @@ class Checkout extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        'Total Pembayaran',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        'Rp 260.000',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
                   ),
                   SizedBox(
                     height: h * .01,

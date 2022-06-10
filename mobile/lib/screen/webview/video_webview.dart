@@ -20,8 +20,16 @@ class _VideoViewAppState extends State<VideoView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Video'),
-        backgroundColor: const Color.fromARGB(255, 255, 212, 76),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.pop(context),
+          color: Colors.black,
+        ),
+        title: const Text(
+          'Video',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
         actions: [
           NavigationControls(controller: controller),
           Menu(controller: controller),

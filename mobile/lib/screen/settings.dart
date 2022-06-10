@@ -7,14 +7,14 @@ import 'package:mobile/screen/edit_profile.dart';
 import 'package:mobile/utils/userdata.dart';
 
 class Settings extends StatefulWidget {
-  const Settings({Key? key}) : super(key: key);
+  final String? id;
+  const Settings(this.id, {Key? key}) : super(key: key);
 
   @override
   State<Settings> createState() => _SettingsState();
 }
 
 class _SettingsState extends State<Settings> {
-  User? user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
@@ -61,7 +61,7 @@ class _SettingsState extends State<Settings> {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => EditProfile(user?.uid),
+                          builder: (_) => EditProfile(widget.id),
                         ),
                       );
                     },
@@ -117,7 +117,7 @@ class _SettingsState extends State<Settings> {
                                       ),
                                     ),
                                   );
-                                  FirebaseAuth.instance.currentUser?.delete();
+                                  FirebaseAuth.instance.currentUser!.delete();
                                   Navigator.pop(context);
                                 },
                                 child: const Text('Yes')),
