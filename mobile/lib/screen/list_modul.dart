@@ -18,6 +18,8 @@ class _ListModulState extends State<ListModul> {
   String index = '';
   String title = '';
   String url = '';
+  String lastRead = '';
+  String lastReadTitle = '';
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +75,30 @@ class _ListModulState extends State<ListModul> {
       title: Card(
         child: InkWell(
           onTap: () async {
-            ProgressData.updateProgress(
-              widget.id,
-              index,
-              title,
-              await ProgressData().countModul(),
-            );
+            lastRead = await ProgressData().getLastRead(widget.id, 'lastRead');
+
+            lastReadTitle =
+                await ProgressData().getLastRead(widget.id, 'lastReadTitle');
+
+            if (int.parse(lastRead) > int.parse(index!)) {
+              ProgressData.updateProgress(
+                widget.id,
+                index,
+                title,
+                await ProgressData().countModul(),
+                index,
+                title,
+              );
+            } else {
+              ProgressData.updateProgress(
+                widget.id,
+                index,
+                title,
+                await ProgressData().countModul(),
+                lastRead,
+                lastReadTitle,
+              );
+            }
 
             Navigator.of(context).push(
               MaterialPageRoute(

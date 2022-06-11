@@ -15,6 +15,8 @@ class _UserProgressState extends State<UserProgress> {
 
   String index = '';
   String title = '';
+  String lastRead = '';
+  String lastReadTitle = '';
   int count = 0;
 
   @override
@@ -25,6 +27,9 @@ class _UserProgressState extends State<UserProgress> {
         .listen((DocumentSnapshot<Object?> snapshot) {
       index = snapshot.get('index').toString();
       title = snapshot.get('title').toString();
+      lastRead = snapshot.get('lastRead').toString();
+      lastReadTitle = snapshot.get('lastReadTitle').toString();
+
       count = snapshot.get('count');
     });
     super.initState();
@@ -95,7 +100,8 @@ class _UserProgressState extends State<UserProgress> {
                         color: const Color(0xffc4c4c4),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text(index + ' / ' + count.toString()),
+                      child:
+                          Text(index + ' / ' + count.toString() + ' Chapter'),
                     )
                   ],
                 ),
@@ -140,9 +146,53 @@ class _UserProgressState extends State<UserProgress> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
-                        ((int.parse(index) / count) * 100).toString(),
+                        ((int.parse(index) / count) * 100).toStringAsFixed(2),
                       ),
                     )
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      alignment: Alignment.centerLeft,
+                      width: w * .5,
+                      height: h * .07,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffFED403),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text('Chapter ' + lastRead),
+                    ),
+                    SizedBox(
+                      width: w * .02,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      alignment: Alignment.centerLeft,
+                      width: w * .5,
+                      height: h * .07,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffFED403),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(lastReadTitle),
+                    ),
+                    SizedBox(
+                      width: w * .02,
+                    ),
                   ],
                 ),
               ),

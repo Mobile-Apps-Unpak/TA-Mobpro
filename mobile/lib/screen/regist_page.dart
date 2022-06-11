@@ -197,7 +197,8 @@ class _RegistPageState extends State<RegistPage> {
                             schoolController.text.trim(),
                           );
 
-                          await ProgressData.inputProgress('', '', 0);
+                          await ProgressData.inputProgress(
+                              '0', '', '', '0', '');
 
                           Navigator.pop(context);
                         }
