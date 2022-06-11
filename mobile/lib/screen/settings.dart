@@ -103,6 +103,8 @@ class _SettingsState extends State<Settings> {
                                       ),
                                     ),
                                   );
+
+                                  Navigator.pop(context);
                                 },
                                 child: const Text('Yes')),
                             TextButton(

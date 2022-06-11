@@ -38,7 +38,7 @@ class Modul extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Chapter ' + index!,
+                  'Chapter ' + index.toString(),
                   style: const TextStyle(fontSize: 19),
                 ),
                 SizedBox(height: h * .02),

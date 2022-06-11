@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/modul.dart';
+import 'package:mobile/utils/progress_data.dart';
 
 class ListModul extends StatefulWidget {
   final String? id;
@@ -71,7 +72,14 @@ class _ListModulState extends State<ListModul> {
     return ListTile(
       title: Card(
         child: InkWell(
-          onTap: () {
+          onTap: () async {
+            ProgressData.updateProgress(
+              widget.id,
+              index,
+              title,
+              await ProgressData().countModul(),
+            );
+
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (_) => Modul(widget.id, index, title, url),

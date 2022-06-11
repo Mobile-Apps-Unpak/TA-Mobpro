@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/utils/auth_service.dart';
+import 'package:mobile/utils/progress_data.dart';
 import 'package:mobile/utils/userdata.dart';
 
 class RegistPage extends StatefulWidget {
@@ -194,7 +195,11 @@ class _RegistPageState extends State<RegistPage> {
                             nameController.text.trim(),
                             phoneController.text.trim(),
                             schoolController.text.trim(),
-                          ).then((value) => Navigator.pop(context));
+                          );
+
+                          await ProgressData.inputProgress('', '', 0);
+
+                          Navigator.pop(context);
                         }
                       },
                       child: const Text("Register",

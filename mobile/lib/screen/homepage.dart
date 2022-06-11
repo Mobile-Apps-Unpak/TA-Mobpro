@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/chat.dart';
+import 'package:mobile/screen/user_progress.dart';
 import 'package:mobile/screen/list_modul.dart';
 import 'package:mobile/screen/package.dart';
 import 'package:mobile/screen/webview/video_webview.dart';
@@ -127,7 +127,8 @@ class HomePage extends StatelessWidget {
                                           onTap: () {
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
-                                                builder: (_) => const Chat(),
+                                                builder: (_) =>
+                                                    UserProgress(id),
                                               ),
                                             );
                                           },
@@ -141,15 +142,17 @@ class HomePage extends StatelessWidget {
                                               color: const Color.fromARGB(
                                                   255, 253, 235, 179),
                                             ),
-                                            child: SizedBox(
-                                              child: Image.asset(
-                                                "assets/chat_home.png",
+                                            child: const SizedBox(
+                                              child: Icon(
+                                                Icons.star_outline,
+                                                size: 50,
+                                                color: Colors.amber,
                                               ),
                                             ),
                                           ),
                                         ),
                                         SizedBox(height: h * 0.02),
-                                        const Text("Chat"),
+                                        const Text("Progress"),
                                       ],
                                     ),
                                     Column(
