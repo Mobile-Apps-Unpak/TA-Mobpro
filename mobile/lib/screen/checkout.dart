@@ -118,7 +118,7 @@ class Checkout extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     const Text(
-                                      'Total Pembayaran',
+                                      'Total Payment',
                                       style: TextStyle(fontSize: 16),
                                     ),
                                     Text(
@@ -154,7 +154,7 @@ class Checkout extends StatelessWidget {
                                   ),
                                 ),
                                 child: const Text(
-                                  'Buat Pesanan',
+                                  'Make an Order',
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),

@@ -124,13 +124,13 @@ class _StudyState extends State<Study> {
                               style: TextStyle(fontSize: 20),
                             ),
                             const Text(
-                              'Pelajari materi lebih mudah dengan e-book pdf !',
+                              'Learn material easier!',
                               style: TextStyle(fontSize: 15),
                             ),
                             Container(
                               alignment: Alignment.bottomRight,
                               child: TextButton(
-                                child: const Text('Read More'),
+                                child: const Text('Click Here'),
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
@@ -184,13 +184,13 @@ class _StudyState extends State<Study> {
                               style: TextStyle(fontSize: 20),
                             ),
                             const Text(
-                              'Belajar ga perlu ribet!, pelajari materi dengan video learning!',
+                              'Learning doesn\'t have to be complicated!, learn with video learning!',
                               style: TextStyle(fontSize: 15),
                             ),
                             Container(
                               alignment: Alignment.bottomRight,
                               child: TextButton(
-                                child: const Text('Read More'),
+                                child: const Text('Click Here'),
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
