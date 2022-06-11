@@ -4,13 +4,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserData {
-  static Future inputData(email, name, phone, school) async {
+  static Future inputData(email, name, phone, school, bandage) async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
     FirebaseFirestore.instance.collection("users").doc(firebaseUser?.uid).set({
       "email": email,
       "name": name,
       "phone": phone,
       "school": school,
+      "bandage": bandage,
     }, SetOptions(merge: true)).then((_) {
       // ignore: avoid_print
       print("success!");
