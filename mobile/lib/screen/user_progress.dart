@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class UserProgress extends StatefulWidget {
   final String? id;
@@ -80,126 +82,184 @@ class _UserProgressState extends State<UserProgress> {
   Widget userProgress(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
-    return Stack(
-      children: <Widget>[
-        SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                alignment: Alignment.topLeft,
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: w * .02,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      width: w * .5,
-                      height: h * .07,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffc4c4c4),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child:
-                          Text(index + ' / ' + count.toString() + ' Chapter'),
-                    )
-                  ],
-                ),
+    return ListView(
+      children: [
+        Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                left: w * .05,
+                right: w * .05,
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      width: w * .5,
-                      height: h * .07,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFED403),
-                        borderRadius: BorderRadius.circular(10),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: h * .02,
+                  ),
+                  Container(
+                    width: w * .9,
+                    height: h * .57,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 143, 120, 44),
+                        image: const DecorationImage(
+                            image: AssetImage("assets/vector_progress.jpeg"),
+                            opacity: .7,
+                            fit: BoxFit.fill),
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: w * 1,
+                            decoration: const BoxDecoration(
+                              //color: Colors.red,
+                              border: Border(
+                                  bottom: BorderSide(
+                                color: Colors.white,
+                              )),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                "Current Progress",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: h * .02,
+                          ),
+                          Center(
+                            child: Text(
+                              title,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 35,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                          SizedBox(
+                            height: h * .05,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                index + " / " + count.toString(),
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: h * .02,
+                          ),
+                          LinearPercentIndicator(
+                            lineHeight: 15,
+                            percent: ((int.parse(index) / count)),
+                            progressColor: const Color(0xffffd44c),
+                            backgroundColor: Colors.grey,
+                          ),
+                          SizedBox(
+                            height: h * .05,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              CircularPercentIndicator(
+                                radius: 170,
+                                lineWidth: 25,
+                                percent: ((int.parse(index) / count)),
+                                progressColor: const Color(0xffffd44c),
+                                backgroundColor: Colors.grey,
+                                circularStrokeCap: CircularStrokeCap.round,
+                                center: Text(
+                                  ((int.parse(index) / count) * 100)
+                                      .toStringAsFixed(2),
+                                  style: const TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      child: Text(title),
                     ),
-                    SizedBox(
-                      width: w * .02,
+                  ),
+                  SizedBox(
+                    height: h * .02,
+                  ),
+                  Container(
+                    width: w * .9,
+                    height: h * .25,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 170, 143, 52),
+                        image: const DecorationImage(
+                            image: AssetImage("assets/vector_progress.jpeg"),
+                            opacity: .7,
+                            fit: BoxFit.fill),
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: w * 1,
+                            decoration: const BoxDecoration(
+                              //color: Colors.red,
+                              border: Border(
+                                  bottom: BorderSide(
+                                color: Colors.white,
+                              )),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                "Last Reading",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: h * .02,
+                          ),
+                          Text(
+                            lastReadTitle,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            height: h * .01,
+                          ),
+                          Text(
+                            'Chapter ' + lastRead,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
                     ),
-                  ],
-                ),
+                  )
+                ],
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                alignment: Alignment.topLeft,
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: w * .02,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      width: w * .5,
-                      height: h * .07,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffc4c4c4),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        ((int.parse(index) / count) * 100).toStringAsFixed(2),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      width: w * .5,
-                      height: h * .07,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFED403),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text('Chapter ' + lastRead),
-                    ),
-                    SizedBox(
-                      width: w * .02,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      width: w * .5,
-                      height: h * .07,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFED403),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(lastReadTitle),
-                    ),
-                    SizedBox(
-                      width: w * .02,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
     );

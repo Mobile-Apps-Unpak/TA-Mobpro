@@ -37,6 +37,7 @@ dependencies:
   persistent_bottom_nav_bar_v2: ^4.2.3
   shared_preferences: ^2.0.15
   webview_flutter: ^3.0.4
+  percent_indicator: ^3.4.0
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,16 +1,15 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  final String? id;
+  const Profile(this.id, {Key? key}) : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
-  var firebaseUser = FirebaseAuth.instance.currentUser;
   final CollectionReference users =
       FirebaseFirestore.instance.collection('users');
 
@@ -18,19 +17,19 @@ class _ProfileState extends State<Profile> {
   String name = '';
   String phone = '';
   String school = '';
-  String bandage = '';
+  String badge = '';
 
   @override
   void initState() {
     users
-        .doc(firebaseUser?.uid)
+        .doc(widget.id)
         .snapshots()
         .listen((DocumentSnapshot<Object?> snapshot) {
       email = snapshot.get('email').toString();
       name = snapshot.get('name').toString();
       phone = snapshot.get('phone').toString();
       school = snapshot.get('school').toString();
-      bandage = snapshot.get('bandage').toString();
+      badge = snapshot.get('badge').toString();
     });
     super.initState();
   }
@@ -128,8 +127,8 @@ class _ProfileState extends State<Profile> {
                             ),
                             Box(h: h),
                             ItemList(
-                              tittle: 'bandage',
-                              value: bandage,
+                              tittle: 'Badge',
+                              value: badge,
                               icons: Icons.badge_outlined,
                             ),
                           ],
@@ -202,7 +201,7 @@ class ItemList extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: h * .020,
+                height: h * .005,
               ),
               Text(
                 value,

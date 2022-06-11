@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/user_progress.dart';
 import 'package:mobile/screen/list_modul.dart';
-import 'package:mobile/screen/package.dart';
+import 'package:mobile/screen/badge.dart';
 import 'package:mobile/screen/webview/video_webview.dart';
 
 class HomePage extends StatelessWidget {
@@ -161,7 +161,7 @@ class HomePage extends StatelessWidget {
                                           onTap: () {
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
-                                                builder: (_) => const Package(),
+                                                builder: (_) => Badge(id),
                                               ),
                                             );
                                           },
@@ -181,7 +181,7 @@ class HomePage extends StatelessWidget {
                                           ),
                                         ),
                                         SizedBox(height: h * 0.02),
-                                        const Text("Package")
+                                        const Text("Badge")
                                       ],
                                     )
                                   ],

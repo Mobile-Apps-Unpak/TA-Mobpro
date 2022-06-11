@@ -72,88 +72,86 @@ class _ListModulState extends State<ListModul> {
 
   Widget dataModul({String? index, String? title, String? url}) {
     return ListTile(
-      title: Container(
-        child: InkWell(
-          borderRadius: BorderRadius.circular(20.0),
-          onTap: () async {
-            currentProgress =
-                await ProgressData().getLastRead(widget.id, 'index');
+      title: InkWell(
+        borderRadius: BorderRadius.circular(20.0),
+        onTap: () async {
+          currentProgress =
+              await ProgressData().getLastRead(widget.id, 'index');
 
-            currentProgressTitle =
-                await ProgressData().getLastRead(widget.id, 'title');
+          currentProgressTitle =
+              await ProgressData().getLastRead(widget.id, 'title');
 
-            if (int.parse(currentProgress) < int.parse(index!)) {
-              ProgressData.updateProgress(
-                widget.id,
-                index,
-                title,
-                await ProgressData().countModul(),
-                index,
-                title,
-              );
-            } else {
-              ProgressData.updateProgress(
-                widget.id,
-                currentProgress,
-                currentProgressTitle,
-                await ProgressData().countModul(),
-                index,
-                title,
-              );
-            }
-
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => Modul(widget.id, index, title, url),
-              ),
+          if (int.parse(currentProgress) < int.parse(index!)) {
+            ProgressData.updateProgress(
+              widget.id,
+              index,
+              title,
+              await ProgressData().countModul(),
+              index,
+              title,
             );
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(20),
+          } else {
+            ProgressData.updateProgress(
+              widget.id,
+              currentProgress,
+              currentProgressTitle,
+              await ProgressData().countModul(),
+              index,
+              title,
+            );
+          }
+
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => Modul(widget.id, index, title, url),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/book.png'),
-                        fit: BoxFit.fill,
-                      ),
+          );
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/book.png"),
+                      fit: BoxFit.fill,
                     ),
                   ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Chapter ' + index!,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                        ),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Chapter ' + index!,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        title!,
-                        style: const TextStyle(color: Colors.black54),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      title!,
+                      style: const TextStyle(color: Colors.black54),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),

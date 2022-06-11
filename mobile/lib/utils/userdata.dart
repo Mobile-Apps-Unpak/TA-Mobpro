@@ -4,14 +4,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserData {
-  static Future inputData(email, name, phone, school, bandage) async {
+  static Future inputData(email, name, phone, school, badge) async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
     FirebaseFirestore.instance.collection("users").doc(firebaseUser?.uid).set({
       "email": email,
       "name": name,
       "phone": phone,
       "school": school,
-      "bandage": bandage,
+      "badge": badge,
     }, SetOptions(merge: true)).then((_) {
       // ignore: avoid_print
       print("success!");
@@ -29,6 +29,15 @@ class UserData {
         .collection("users")
         .doc(id)
         .update({"name": name, "phone": phone, "school": school}).then((_) {
+      print("success!");
+    });
+  }
+
+  static Future updateBadge(id, badge) async {
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(id)
+        .update({"badge": badge}).then((_) {
       print("success!");
     });
   }
