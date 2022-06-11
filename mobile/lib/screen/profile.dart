@@ -1,15 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Profile extends StatefulWidget {
-  final String? id;
-  const Profile(this.id, {Key? key}) : super(key: key);
+  const Profile({Key? key}) : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+  var firebaseUser = FirebaseAuth.instance.currentUser;
   final CollectionReference users =
       FirebaseFirestore.instance.collection('users');
 
@@ -17,17 +18,19 @@ class _ProfileState extends State<Profile> {
   String name = '';
   String phone = '';
   String school = '';
+  String bandage = '';
 
   @override
   void initState() {
     users
-        .doc(widget.id)
+        .doc(firebaseUser?.uid)
         .snapshots()
         .listen((DocumentSnapshot<Object?> snapshot) {
       email = snapshot.get('email').toString();
       name = snapshot.get('name').toString();
       phone = snapshot.get('phone').toString();
       school = snapshot.get('school').toString();
+      bandage = snapshot.get('bandage').toString();
     });
     super.initState();
   }
@@ -51,7 +54,7 @@ class _ProfileState extends State<Profile> {
 
   FutureBuilder<DocumentSnapshot<Object?>> getUser() {
     return FutureBuilder(
-      future: users.doc(widget.id).get(),
+      future: users.doc().get(),
       builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         try {
           if (snapshot.hasData) {
@@ -70,7 +73,7 @@ class _ProfileState extends State<Profile> {
     return ListView(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * .7,
+          height: MediaQuery.of(context).size.height * .8,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             child: Column(
@@ -122,6 +125,12 @@ class _ProfileState extends State<Profile> {
                               tittle: 'Phone',
                               value: phone,
                               icons: Icons.phone,
+                            ),
+                            Box(h: h),
+                            ItemList(
+                              tittle: 'bandage',
+                              value: bandage,
+                              icons: Icons.badge_outlined,
                             ),
                           ],
                         ),

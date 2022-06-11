@@ -18,6 +18,7 @@ class _RegistPageState extends State<RegistPage> {
   final schoolController = TextEditingController();
   final passwordController = TextEditingController();
   final passwordConfirmationController = TextEditingController();
+  final bandageController = "no bandage";
 
   @override
   Widget build(BuildContext context) {
@@ -191,11 +192,11 @@ class _RegistPageState extends State<RegistPage> {
                           );
 
                           await UserData.inputData(
-                            emailController.text.trim(),
-                            nameController.text.trim(),
-                            phoneController.text.trim(),
-                            schoolController.text.trim(),
-                          );
+                              emailController.text.trim(),
+                              nameController.text.trim(),
+                              phoneController.text.trim(),
+                              schoolController.text.trim(),
+                              bandageController);
 
                           await ProgressData.inputProgress(
                               '0', '', '', '0', '');

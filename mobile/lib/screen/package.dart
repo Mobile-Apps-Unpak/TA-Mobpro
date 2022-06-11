@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/checkout.dart';
+import 'package:mobile/screen/payment.dart';
+import 'package:mobile/utils/payment_service.dart';
 
 class Package extends StatelessWidget {
   const Package({Key? key}) : super(key: key);
@@ -138,7 +139,45 @@ class Package extends StatelessWidget {
                 ),
                 Card(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Center(
+                            child: Text('Order Package Confirmation'),
+                          ),
+                          content:
+                              const Text('Are You Sure Buy Bronze Package?'),
+                          actions: [
+                            TextButton(
+                                onPressed: () async {
+                                  await PaymentService.createOrder(
+                                          "bronze", null, "100000", "process")
+                                      .then(
+                                    (value) => ScaffoldMessenger.of(context)
+                                        .showSnackBar(
+                                      const SnackBar(
+                                        content: Text(
+                                            'Please choose payment method'),
+                                      ),
+                                    ),
+                                  );
+                                  PaymentService.createOrder(
+                                      "bronze", null, "100000", "process");
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => const Payment(),
+                                    ),
+                                  );
+                                },
+                                child: const Text('Yes')),
+                            TextButton(
+                                onPressed: () => Navigator.pop(context, "No"),
+                                child: const Text('No')),
+                          ],
+                        ),
+                      );
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: w * .03),
                       height: h * 0.1,
@@ -164,7 +203,45 @@ class Package extends StatelessWidget {
                 ),
                 Card(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Center(
+                            child: Text('Order Package Confirmation'),
+                          ),
+                          content:
+                              const Text('Are You Sure Buy Silver Package?'),
+                          actions: [
+                            TextButton(
+                                onPressed: () async {
+                                  await PaymentService.createOrder(
+                                          "silver", null, "180000", "process")
+                                      .then(
+                                    (value) => ScaffoldMessenger.of(context)
+                                        .showSnackBar(
+                                      const SnackBar(
+                                        content: Text(
+                                            'Please choose payment method'),
+                                      ),
+                                    ),
+                                  );
+                                  PaymentService.createOrder(
+                                      "silver", null, "180000", "process");
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => const Payment(),
+                                    ),
+                                  );
+                                },
+                                child: const Text('Yes')),
+                            TextButton(
+                                onPressed: () => Navigator.pop(context, "No"),
+                                child: const Text('No')),
+                          ],
+                        ),
+                      );
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: w * .03),
                       height: h * 0.1,
@@ -190,7 +267,44 @@ class Package extends StatelessWidget {
                 ),
                 Card(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Center(
+                            child: Text('Order Package Confirmation'),
+                          ),
+                          content: const Text('Are You Sure Buy Gold Package?'),
+                          actions: [
+                            TextButton(
+                                onPressed: () async {
+                                  await PaymentService.createOrder(
+                                          "gold", null, "260000", "process")
+                                      .then(
+                                    (value) => ScaffoldMessenger.of(context)
+                                        .showSnackBar(
+                                      const SnackBar(
+                                        content: Text(
+                                            'Please choose payment method'),
+                                      ),
+                                    ),
+                                  );
+                                  PaymentService.createOrder(
+                                      "gold", null, "260000", "process");
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => const Payment(),
+                                    ),
+                                  );
+                                },
+                                child: const Text('Yes')),
+                            TextButton(
+                                onPressed: () => Navigator.pop(context, "No"),
+                                child: const Text('No')),
+                          ],
+                        ),
+                      );
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: w * .03),
                       height: h * 0.1,
@@ -215,30 +329,6 @@ class Package extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-          SizedBox(
-            height: h * .01,
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: w * .3),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => const Checkout(),
-                  ),
-                );
-              },
-              child: const Text(
-                'Pay',
-                style: TextStyle(color: Colors.black87),
-              ),
-              style: ElevatedButton.styleFrom(
-                  primary: const Color(0xffFFD44C),
-                  fixedSize: const Size(10, 30),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50))),
             ),
           ),
         ],
