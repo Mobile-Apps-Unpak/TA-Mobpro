@@ -17,6 +17,7 @@ class _UserProgressState extends State<UserProgress> {
   String title = '';
   String lastRead = '';
   String lastReadTitle = '';
+  String tempCount = '';
   int count = 0;
 
   @override
@@ -30,7 +31,8 @@ class _UserProgressState extends State<UserProgress> {
       lastRead = snapshot.get('lastRead').toString();
       lastReadTitle = snapshot.get('lastReadTitle').toString();
 
-      count = snapshot.get('count');
+      tempCount = snapshot.get('count').toString();
+      count = int.parse(tempCount);
     });
     super.initState();
   }

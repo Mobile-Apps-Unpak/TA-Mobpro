@@ -18,8 +18,8 @@ class _ListModulState extends State<ListModul> {
   String index = '';
   String title = '';
   String url = '';
-  String lastRead = '';
-  String lastReadTitle = '';
+  String currentProgress = '';
+  String currentProgressTitle = '';
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +75,13 @@ class _ListModulState extends State<ListModul> {
       title: Card(
         child: InkWell(
           onTap: () async {
-            lastRead = await ProgressData().getLastRead(widget.id, 'lastRead');
+            currentProgress =
+                await ProgressData().getLastRead(widget.id, 'index');
 
-            lastReadTitle =
-                await ProgressData().getLastRead(widget.id, 'lastReadTitle');
+            currentProgressTitle =
+                await ProgressData().getLastRead(widget.id, 'title');
 
-            if (int.parse(lastRead) > int.parse(index!)) {
+            if (int.parse(currentProgress) < int.parse(index!)) {
               ProgressData.updateProgress(
                 widget.id,
                 index,
@@ -92,11 +93,11 @@ class _ListModulState extends State<ListModul> {
             } else {
               ProgressData.updateProgress(
                 widget.id,
+                currentProgress,
+                currentProgressTitle,
+                await ProgressData().countModul(),
                 index,
                 title,
-                await ProgressData().countModul(),
-                lastRead,
-                lastReadTitle,
               );
             }
 
