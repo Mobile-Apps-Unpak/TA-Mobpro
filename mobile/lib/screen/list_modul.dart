@@ -72,8 +72,9 @@ class _ListModulState extends State<ListModul> {
 
   Widget dataModul({String? index, String? title, String? url}) {
     return ListTile(
-      title: Card(
+      title: Container(
         child: InkWell(
+          borderRadius: BorderRadius.circular(20.0),
           onTap: () async {
             lastRead = await ProgressData().getLastRead(widget.id, 'lastRead');
 
@@ -107,19 +108,51 @@ class _ListModulState extends State<ListModul> {
             );
           },
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Chapter ' + index!,
-                  style: const TextStyle(color: Colors.black54),
-                ),
-                Text(
-                  title!,
-                  style: const TextStyle(color: Colors.black54),
-                ),
-              ],
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/book.png'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Chapter ' + index!,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        title!,
+                        style: const TextStyle(color: Colors.black54),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
