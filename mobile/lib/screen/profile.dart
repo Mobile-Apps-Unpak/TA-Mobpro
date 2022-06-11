@@ -89,7 +89,7 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .05,
+                  height: MediaQuery.of(context).size.height * .04,
                 ),
                 Expanded(
                   child: Column(
