@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/webview/modul_view.dart';
+import 'package:mobile/utils/progress_data.dart';
 
 class Modul extends StatelessWidget {
-  const Modul(this.id, this.index, this.title, this.url, {Key? key})
+  const Modul(this.id, this.index, this.title, this.url, this.currentProgress,
+      this.currentProgressTitle,
+      {Key? key})
       : super(key: key);
 
   final String? id;
   final String? index;
   final String? title;
   final String? url;
+  final String? currentProgress;
+  final String? currentProgressTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +74,28 @@ class Modul extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     primary: const Color.fromARGB(255, 255, 212, 105)),
                 onPressed: () async {
+                  int numCProgress = int.parse(currentProgress!);
+                  int numIndex = int.parse(index!);
+
+                  if (numCProgress < numIndex) {
+                    ProgressData.updateProgress(
+                      id,
+                      index,
+                      title,
+                      await ProgressData().countModul(),
+                      index,
+                      title,
+                    );
+                  } else {
+                    ProgressData.updateProgress(
+                      id,
+                      currentProgress,
+                      currentProgressTitle,
+                      await ProgressData().countModul(),
+                      index,
+                      title,
+                    );
+                  }
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => ModulView(url),

@@ -81,31 +81,25 @@ class _ListModulState extends State<ListModul> {
           currentProgressTitle =
               await ProgressData().getLastRead(widget.id, 'title');
 
-          if (int.parse(currentProgress) < int.parse(index!)) {
-            ProgressData.updateProgress(
-              widget.id,
-              index,
-              title,
-              await ProgressData().countModul(),
-              index,
-              title,
+          int numIndex = int.parse(index!);
+          int numCProgress = int.parse(currentProgress);
+
+          if ((numCProgress + 1) >= numIndex) {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => Modul(widget.id, index, title, url,
+                    currentProgress, currentProgressTitle),
+              ),
             );
           } else {
-            ProgressData.updateProgress(
-              widget.id,
-              currentProgress,
-              currentProgressTitle,
-              await ProgressData().countModul(),
-              index,
-              title,
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('You Must Read Chapter ' +
+                    (numIndex - 1).toString() +
+                    ' First'),
+              ),
             );
           }
-
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => Modul(widget.id, index, title, url),
-            ),
-          );
         },
         child: Container(
           decoration: BoxDecoration(

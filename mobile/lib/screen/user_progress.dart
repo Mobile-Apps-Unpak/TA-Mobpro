@@ -74,8 +74,34 @@ class _UserProgressState extends State<UserProgress> {
         } catch (e) {
           debugPrint(e.toString());
         }
+        if (count == 0) {
+          return noProgress(context);
+        }
         return const Center(child: CircularProgressIndicator());
       },
+    );
+  }
+
+  Widget noProgress(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset('assets/vector.png', width: w * 0.6, height: h * 0.3),
+          SizedBox(height: h * .02),
+          const Text(
+            'No Progress!',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: h * .02),
+          const Text(
+            'You Must Read Modul First!',
+            style: TextStyle(fontSize: 14),
+          ),
+        ],
+      ),
     );
   }
 
@@ -98,7 +124,7 @@ class _UserProgressState extends State<UserProgress> {
                   ),
                   Container(
                     width: w * .9,
-                    height: h * .57,
+                    height: h * .65,
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 143, 120, 44),
                         image: const DecorationImage(
@@ -114,7 +140,6 @@ class _UserProgressState extends State<UserProgress> {
                           Container(
                             width: w * 1,
                             decoration: const BoxDecoration(
-                              //color: Colors.red,
                               border: Border(
                                   bottom: BorderSide(
                                 color: Colors.white,
