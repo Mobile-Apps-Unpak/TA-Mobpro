@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/modul.dart';
+import 'package:mobile/screen/mainpage_screen/modul.dart';
 import 'package:mobile/utils/progress_data.dart';
 
 class ListModul extends StatefulWidget {

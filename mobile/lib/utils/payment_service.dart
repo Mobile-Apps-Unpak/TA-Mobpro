@@ -25,4 +25,10 @@ class PaymentService {
       print("Order Updated!");
     });
   }
+
+  static Future deleteOrder(id) async {
+    FirebaseFirestore.instance.collection("orders").doc(id).delete().then((_) {
+      print("Delete Order success!");
+    });
+  }
 }

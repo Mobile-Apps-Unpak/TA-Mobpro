@@ -4,7 +4,7 @@ import 'package:mobile/screen/app_info.dart';
 import 'package:mobile/screen/change_password.dart';
 import 'package:mobile/screen/contact_us.dart';
 import 'package:mobile/screen/edit_profile.dart';
-import 'package:mobile/utils/userdata.dart';
+import 'package:mobile/screen/relog_page.dart';
 
 class Settings extends StatefulWidget {
   final String? id;
@@ -91,20 +91,12 @@ class _SettingsState extends State<Settings> {
                           content: const Text('Are You Sure?'),
                           actions: [
                             TextButton(
-                                onPressed: () async {
-                                  FirebaseAuth.instance.currentUser!.delete();
-
-                                  await UserData.deleteData(widget.id).then(
-                                    (value) => ScaffoldMessenger.of(context)
-                                        .showSnackBar(
-                                      const SnackBar(
-                                        content:
-                                            Text('Data User Berhasil Dihapus'),
-                                      ),
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => RelogPage(widget.id),
                                     ),
                                   );
-
-                                  Navigator.pop(context);
                                 },
                                 child: const Text('Yes')),
                             TextButton(

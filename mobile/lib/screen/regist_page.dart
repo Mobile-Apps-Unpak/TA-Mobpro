@@ -188,7 +188,7 @@ class _RegistPageState extends State<RegistPage> {
                           await AuthServices.createUser(
                             emailController.text.trim(),
                             passwordController.text.trim(),
-                          );
+                          ).then((value) => null);
 
                           await UserData.inputData(
                             emailController.text.trim(),

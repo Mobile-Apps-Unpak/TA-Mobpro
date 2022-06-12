@@ -2,14 +2,9 @@
 
 import 'dart:ffi';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthServices {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
-  static CollectionReference users =
-      FirebaseFirestore.instance.collection('users');
-
-  static get db => null;
 
   static Future<Void> signOut() async {
     _auth.signOut();
@@ -17,10 +12,9 @@ class AuthServices {
     return signOut();
   }
 
-  static Future signIn(emailAddress, password) async {
+  static Future signIn(email, password) async {
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: emailAddress, password: password);
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('Email tidak ditemukan');
@@ -32,7 +26,7 @@ class AuthServices {
 
   static Future createUser(emailAddress, password) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
         email: emailAddress,
         password: password,
       );
@@ -43,7 +37,18 @@ class AuthServices {
 
   static Future updatePassword(newPassword) async {
     try {
-      await FirebaseAuth.instance.currentUser?.updatePassword(newPassword);
+      await _auth.currentUser?.updatePassword(newPassword);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  static Future deleteUser(id, email, password) async {
+    try {
+      AuthCredential authCredential =
+          EmailAuthProvider.credential(email: email, password: password);
+      await _auth.currentUser!.reauthenticateWithCredential(authCredential);
+      await FirebaseAuth.instance.currentUser?.delete();
     } catch (e) {
       print(e);
     }

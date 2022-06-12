@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/homepage.dart';
-import 'package:mobile/screen/profile.dart';
-import 'package:mobile/screen/settings.dart';
-import 'package:mobile/screen/study.dart';
-import 'package:mobile/screen/user_progress.dart';
+import 'package:mobile/screen/mainpage_screen/homepage.dart';
+import 'package:mobile/screen/mainpage_screen/profile.dart';
+import 'package:mobile/screen/mainpage_screen/settings.dart';
+import 'package:mobile/screen/mainpage_screen/study.dart';
+import 'package:mobile/screen/mainpage_screen/user_progress.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:flutter/cupertino.dart';
 

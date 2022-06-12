@@ -52,4 +52,14 @@ class ProgressData {
     });
     return value;
   }
+
+  static Future deleteProgress(id) async {
+    FirebaseFirestore.instance
+        .collection("study_progress")
+        .doc(id)
+        .delete()
+        .then((_) {
+      print("Delete Progress success!");
+    });
+  }
 }

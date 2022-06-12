@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/user_progress.dart';
+import 'package:mobile/screen/mainpage_screen/user_progress.dart';
 import 'package:mobile/screen/list_modul.dart';
 import 'package:mobile/screen/badge.dart';
 import 'package:mobile/screen/webview/video_webview.dart';
