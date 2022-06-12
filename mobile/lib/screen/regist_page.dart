@@ -19,6 +19,8 @@ class _RegistPageState extends State<RegistPage> {
   final passwordController = TextEditingController();
   final passwordConfirmationController = TextEditingController();
 
+  String errorMessage = '';
+
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -180,26 +182,37 @@ class _RegistPageState extends State<RegistPage> {
                       ),
                     ),
                     SizedBox(height: h * .03),
-
                     //Button for Register
                     ElevatedButton(
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
-                          await AuthServices.createUser(
-                            emailController.text.trim(),
-                            passwordController.text.trim(),
-                          ).then((value) => null);
+                          try {
+                            await AuthServices.createUser(
+                              emailController.text.trim(),
+                              passwordController.text.trim(),
+                            );
+                          } on Exception catch (e) {
+                            errorMessage = e.toString();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Email already used by another user',
+                                ),
+                              ),
+                            );
+                          }
 
-                          await UserData.inputData(
-                            emailController.text.trim(),
-                            nameController.text.trim(),
-                            phoneController.text.trim(),
-                            schoolController.text.trim(),
-                            'No Badge',
-                          );
-
-                          await ProgressData.inputProgress(
-                              '1', ' ', 0, '0', ' ');
+                          if (errorMessage == '') {
+                            await UserData.inputData(
+                              emailController.text.trim(),
+                              nameController.text.trim(),
+                              phoneController.text.trim(),
+                              schoolController.text.trim(),
+                              'No Badge',
+                            );
+                            await ProgressData.inputProgress(
+                                '1', ' ', 0, '0', ' ');
+                          }
 
                           Navigator.pop(context);
                         }

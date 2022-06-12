@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile/screen/badge.dart';
 import 'package:mobile/screen/mainpage_screen/homepage.dart';
 import 'package:mobile/screen/mainpage_screen/profile.dart';
 import 'package:mobile/screen/mainpage_screen/settings.dart';
 import 'package:mobile/screen/mainpage_screen/study.dart';
-import 'package:mobile/screen/mainpage_screen/user_progress.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
         controller: _controller,
         screens: [
           HomePage(user?.uid),
-          UserProgress(user?.uid),
+          Badge(user?.uid),
           Study(user?.uid),
           Settings(user?.uid),
           Profile(user?.uid),
@@ -50,8 +50,8 @@ class _MainPageState extends State<MainPage> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.star),
-        title: ("Progress"),
+        icon: const Icon(Icons.badge),
+        title: ("Badge"),
         activeColorPrimary: mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),

@@ -16,10 +16,9 @@ class AuthServices {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('Email tidak ditemukan');
-      } else if (e.code == 'wrong-password') {
-        print('Password salah');
+      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+        print(e.code);
+        rethrow;
       }
     }
   }
@@ -32,6 +31,7 @@ class AuthServices {
       );
     } catch (e) {
       print(e);
+      rethrow;
     }
   }
 

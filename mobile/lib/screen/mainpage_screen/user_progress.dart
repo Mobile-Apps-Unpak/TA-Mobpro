@@ -69,14 +69,15 @@ class _UserProgressState extends State<UserProgress> {
       builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         try {
           if (snapshot.hasData) {
+            if (count == 0) {
+              return noProgress(context);
+            }
             return userProgress(context);
           }
         } catch (e) {
           debugPrint(e.toString());
         }
-        if (count == 0) {
-          return noProgress(context);
-        }
+
         return const Center(child: CircularProgressIndicator());
       },
     );

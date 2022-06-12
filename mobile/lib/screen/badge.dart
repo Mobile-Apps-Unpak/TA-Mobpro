@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/screen/payment.dart';
-import 'package:mobile/utils/payment_service.dart';
+import 'package:mobile/screen/payment_method.dart';
 
 class Badge extends StatefulWidget {
   final String? id;
@@ -17,7 +16,6 @@ class _BadgeState extends State<Badge> {
 
   String badgeType = '';
   String price = '';
-  String duration = '';
 
   @override
   Widget build(BuildContext context) {
@@ -149,10 +147,11 @@ class _BadgeState extends State<Badge> {
                   return Column(
                       children: snapshot.data!.docs
                           .map(
-                            (e) => badgeData(context,
-                                badgeType: e['badgeType'],
-                                price: e['price'],
-                                duration: e['duration']),
+                            (e) => badgeData(
+                              context,
+                              badgeType: e['badgeType'],
+                              price: e['price'],
+                            ),
                           )
                           .toList());
                 }
@@ -166,21 +165,17 @@ class _BadgeState extends State<Badge> {
     );
   }
 
-  Widget badgeData(BuildContext context,
-      {required badgeType, required price, required duration}) {
+  Widget badgeData(BuildContext context, {required badgeType, required price}) {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
     return ListTile(
       title: Card(
         child: InkWell(
           onTap: () async {
-            PaymentService.createOrder(badgeType, "0", price, "On Process")
-                .then(
-              (value) => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => Payment(widget.id, badgeType, price),
-                ),
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => PaymentMethod(widget.id, badgeType, price),
               ),
             );
           },

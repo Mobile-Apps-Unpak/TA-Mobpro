@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/regist_page.dart';
 import 'package:mobile/utils/auth_service.dart';
@@ -13,6 +14,9 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  bool _enableAbsorb = true;
+
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -36,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: h * .0115),
                   const Text(
-                    'log in to your account',
+                    'Log in to your account',
                     style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 12,
@@ -87,25 +91,41 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   //Button Submit for Login
-                  ElevatedButton(
-                    child: const Text(
-                      "LOG IN",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w300),
+                  AbsorbPointer(
+                    absorbing: !_enableAbsorb,
+                    child: ElevatedButton(
+                      child: const Text(
+                        "LOG IN",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.w300),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(w * 0.38, h * 0.055),
+                        shape: const StadiumBorder(),
+                        primary: const Color.fromARGB(255, 255, 212, 76),
+                      ),
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          try {
+                            _enableAbsorb = false;
+                            setState(() {});
+                            await AuthServices.signIn(
+                                emailController.text.trim().toString(),
+                                passwordController.text.trim().toString());
+                          } on FirebaseAuthException {
+                            _enableAbsorb = true;
+                            setState(() {});
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Wrong Email or Password, Please check and try again!',
+                                ),
+                              ),
+                            );
+                          }
+                        }
+                      },
                     ),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(w * 0.38, h * 0.055),
-                      shape: const StadiumBorder(),
-                      primary: const Color.fromARGB(255, 255, 212, 76),
-                    ),
-                    onPressed: () async {
-                      if (_formKey.currentState!.validate()) {
-                        await AuthServices.signIn(
-                          emailController.text.trim(),
-                          passwordController.text.trim(),
-                        );
-                      }
-                    },
                   ),
                   SizedBox(height: h * .025),
                   Row(

@@ -4,9 +4,10 @@ import 'package:mobile/utils/userdata.dart';
 
 class Checkout extends StatelessWidget {
   final String? id;
-  final String? badgeType;
-  final String? price;
-  const Checkout(this.id, this.badgeType, this.price, {Key? key})
+  final String badgeType;
+  final String payment;
+  final String price;
+  const Checkout(this.id, this.badgeType, this.price, this.payment, {Key? key})
       : super(key: key);
 
   @override
@@ -52,7 +53,7 @@ class Checkout extends StatelessWidget {
                             ),
                           ),
                           child: Center(
-                            child: Text(badgeType!),
+                            child: Text(badgeType),
                           ),
                         ),
                         SizedBox(
@@ -71,7 +72,7 @@ class Checkout extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              price!,
+                              price,
                               style: const TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
@@ -122,7 +123,7 @@ class Checkout extends StatelessWidget {
                                       style: TextStyle(fontSize: 16),
                                     ),
                                     Text(
-                                      price!,
+                                      price,
                                       style: const TextStyle(fontSize: 16),
                                     ),
                                   ],
@@ -132,14 +133,12 @@ class Checkout extends StatelessWidget {
                         TextButton(
                             onPressed: (() {
                               UserData.updateBadge(id, badgeType);
-                              PaymentService.createOrder(
-                                      badgeType, " ", price, "Paid")
-                                  .then((value) => ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                          content: Text('Order success'),
-                                        ),
-                                      ));
+                              PaymentService.updateOrder(id).then((value) =>
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Order success'),
+                                    ),
+                                  ));
                             }),
                             child: Center(
                               child: Container(

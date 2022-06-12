@@ -1,33 +1,32 @@
 // ignore_for_file: avoid_print
 
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PaymentService {
-  static Future createOrder(package, paymentMethod, price, status) async {
-    var firebaseUser = FirebaseAuth.instance.currentUser;
-    FirebaseFirestore.instance.collection("orders").doc(firebaseUser?.uid).set({
-      "badge": package,
-      "paymentMethod": paymentMethod,
-      "price": price,
-      "status": status,
-    }, SetOptions(merge: true)).then((value) => print("Order Created"));
-  }
-
-  static Future updateOrder(id, badge, paymentMethod, price, status) async {
-    FirebaseFirestore.instance.collection("orders").doc(id).update({
+  static Future createOrder(id, badge, paymentMethod, price) async {
+    await FirebaseFirestore.instance.collection("orders").doc(id).set({
       "badge": badge,
       "paymentMethod": paymentMethod,
       "price": price,
-      "status": status,
-    }).then((_) {
+      "status": "On Progress"
+    }, SetOptions(merge: true)).then((value) => print("Order Created"));
+  }
+
+  static Future updateOrder(id) async {
+    await FirebaseFirestore.instance
+        .collection("orders")
+        .doc(id)
+        .update({"status": "Paid"}).then((_) {
       print("Order Updated!");
     });
   }
 
   static Future deleteOrder(id) async {
-    FirebaseFirestore.instance.collection("orders").doc(id).delete().then((_) {
+    await FirebaseFirestore.instance
+        .collection("orders")
+        .doc(id)
+        .delete()
+        .then((_) {
       print("Delete Order success!");
     });
   }
