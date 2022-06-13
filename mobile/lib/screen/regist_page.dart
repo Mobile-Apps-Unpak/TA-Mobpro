@@ -212,9 +212,8 @@ class _RegistPageState extends State<RegistPage> {
                             );
                             await ProgressData.inputProgress(
                                 '1', ' ', 0, '0', ' ');
+                            Navigator.pop(context);
                           }
-
-                          Navigator.pop(context);
                         }
                       },
                       child: const Text("Register",
