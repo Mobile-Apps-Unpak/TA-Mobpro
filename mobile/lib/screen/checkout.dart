@@ -5,169 +5,151 @@ import 'package:mobile/utils/userdata.dart';
 class Checkout extends StatelessWidget {
   final String? id;
   final String badgeType;
-  final String payment;
   final String price;
-  const Checkout(this.id, this.badgeType, this.price, this.payment, {Key? key})
+  final String paymentMethod;
+  const Checkout(this.id, this.badgeType, this.paymentMethod, this.price,
+      {Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var w = MediaQuery.of(context).size.width;
-    var h = MediaQuery.of(context).size.height;
-
     return Scaffold(
-      backgroundColor: const Color(0xffffd44c),
-      body: ListView(
-        children: [
-          Container(
-            color: const Color(0xffffd44c),
-            height: h * 0.09,
-            child: const Center(
-              child: Text(
-                'Checkout',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w700,
-                ),
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        centerTitle: true,
+        leading: const SizedBox(),
+        title: const Text(
+          'Checkout',
+          style: TextStyle(color: Colors.black),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white60,
+                borderRadius: BorderRadius.circular(20),
               ),
-            ),
-          ),
-          Container(
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: h * 0.12,
-                          width: w * 0.24,
-                          decoration: const BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(100),
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(badgeType),
-                          ),
-                        ),
-                        SizedBox(
-                          width: w * .05,
-                        ),
-                        Column(
-                          children: [
-                            const Text(
-                              'Payment',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              price,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                  const Text(
+                    'Payment Detail',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
                     ),
                   ),
-                  Container(
-                    width: w * .79,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset:
-                              const Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          alignment: Alignment.centerRight,
-                          height: h * .1,
-                          width: w * .5,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 1),
-                            color: Colors.white,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ItemPurchase(
+                      tittle: 'Item :',
+                      detail: badgeType,
+                      paymentMethod: paymentMethod),
+                  const Garis(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ItemPurchase(
+                      tittle: 'Total Cost :',
+                      detail: price,
+                      paymentMethod: paymentMethod),
+                  const Garis(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ItemPurchase(
+                      tittle: 'Payment Method :',
+                      detail: paymentMethod,
+                      paymentMethod: paymentMethod),
+                  const Garis(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        UserData.updateBadge(id, badgeType);
+                        PaymentService.updateOrder("Paid").then(
+                          (value) => ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Order success'),
                             ),
                           ),
-                          child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    const Text(
-                                      'Total Payment',
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                    Text(
-                                      price,
-                                      style: const TextStyle(fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              )),
+                        );
+                      },
+                      child: const Text('Purchase'),
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color.fromARGB(255, 255, 212, 76),
+                        fixedSize: const Size(300, 30),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        TextButton(
-                            onPressed: (() {
-                              UserData.updateBadge(id, badgeType);
-                              PaymentService.updateOrder(id).then((value) =>
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text('Order success'),
-                                    ),
-                                  ));
-                            }),
-                            child: Center(
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: h * .1,
-                                width: w * .22,
-                                decoration: const BoxDecoration(
-                                  color: Color(0xffFCA02B),
-                                  borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(10),
-                                    bottomRight: Radius.circular(10),
-                                  ),
-                                ),
-                                child: const Text(
-                                  'Make an Order',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ))
-                      ],
+                      ),
                     ),
                   ),
-                  SizedBox(height: h * .05),
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class ItemPurchase extends StatelessWidget {
+  const ItemPurchase({
+    Key? key,
+    required this.detail,
+    required this.tittle,
+    required this.paymentMethod,
+  }) : super(key: key);
+
+  final String tittle;
+  final String detail;
+  final String paymentMethod;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          tittle,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        Text(
+          detail,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class Garis extends StatelessWidget {
+  const Garis({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 1,
+      color: Colors.grey[200],
     );
   }
 }
