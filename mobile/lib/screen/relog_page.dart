@@ -17,6 +17,9 @@ class _RelogPageState extends State<RelogPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _enableAbsorb = true;
+  String errorMessage = '';
+
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -91,48 +94,62 @@ class _RelogPageState extends State<RelogPage> {
                     ),
                   ),
                   //Button Submit for Login
-                  ElevatedButton(
-                    child: const Text(
-                      "SUBMIT",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w300),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(w * 0.38, h * 0.055),
-                      shape: const StadiumBorder(),
-                      primary: const Color.fromARGB(255, 255, 212, 76),
-                    ),
-                    onPressed: () async {
-                      await AuthServices.deleteUser(
-                        widget.id,
-                        _emailController.text.trim(),
-                        _passwordController.text.trim(),
-                      )
-                          .then((value) async =>
-                              await UserData.deleteData(widget.id))
-                          .then(
-                            (value) async =>
-                                await ProgressData.deleteProgress(widget.id)
-                                    .then(
-                              (value) async =>
-                                  await PaymentService.deleteOrder(widget.id),
-                            ),
-                          )
-                          .then(
-                            (value) =>
-                                ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Data User Berhasil Dihapus'),
-                              ),
+                  AbsorbPointer(
+                    absorbing: !_enableAbsorb,
+                    child: ElevatedButton(
+                      child: const Text(
+                        "SUBMIT",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.w300),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(w * 0.38, h * 0.055),
+                        shape: const StadiumBorder(),
+                        primary: const Color.fromARGB(255, 255, 212, 76),
+                      ),
+                      onPressed: () async {
+                        try {
+                          _enableAbsorb = false;
+                          setState(() {});
+                          await AuthServices.deleteUser(
+                            widget.id,
+                            _emailController.text.trim(),
+                            _passwordController.text.trim(),
+                          );
+                        } catch (e) {
+                          errorMessage = e.toString();
+                          _enableAbsorb = true;
+                          setState(() {});
+                        }
+
+                        if (errorMessage == '') {
+                          await UserData.deleteData(widget.id)
+                              .then(
+                                (value) async =>
+                                    await ProgressData.deleteProgress(widget.id)
+                                        .then(
+                                  (value) async =>
+                                      await PaymentService.deleteOrder(
+                                          widget.id),
+                                ),
+                              )
+                              .then(
+                                (value) =>
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Data User Berhasil Dihapus'),
+                                  ),
+                                ),
+                              );
+
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const SplashScreen(),
                             ),
                           );
-
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => const SplashScreen(),
-                        ),
-                      );
-                    },
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),

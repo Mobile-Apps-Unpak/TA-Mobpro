@@ -110,8 +110,9 @@ class _LoginPageState extends State<LoginPage> {
                             _enableAbsorb = false;
                             setState(() {});
                             await AuthServices.signIn(
-                                emailController.text.trim().toString(),
-                                passwordController.text.trim().toString());
+                              emailController.text.trim(),
+                              passwordController.text.trim(),
+                            );
                           } on FirebaseAuthException {
                             _enableAbsorb = true;
                             setState(() {});
