@@ -125,7 +125,7 @@ class _UserProgressState extends State<UserProgress> {
                   ),
                   Container(
                     width: w * .9,
-                    height: h * .65,
+                    height: h * .7,
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 143, 120, 44),
                         image: const DecorationImage(
@@ -226,7 +226,7 @@ class _UserProgressState extends State<UserProgress> {
                   ),
                   Container(
                     width: w * .9,
-                    height: h * .25,
+                    height: h * .27,
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 170, 143, 52),
                         image: const DecorationImage(
