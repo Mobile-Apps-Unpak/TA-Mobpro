@@ -76,7 +76,7 @@ class Checkout extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         UserData.updateBadge(id, badgeType);
-                        PaymentService.updateOrder("Paid").then(
+                        PaymentService.updateOrder(id).then(
                           (value) => ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Order success'),

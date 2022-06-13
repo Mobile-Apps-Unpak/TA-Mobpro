@@ -13,7 +13,6 @@ class UserData {
       "school": school,
       "badge": badge,
     }, SetOptions(merge: true)).then((_) {
-      // ignore: avoid_print
       print("success!");
     });
   }
