@@ -21,24 +21,25 @@ class ThemeProvider extends ChangeNotifier {
 
 class MyThemes {
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.grey.shade900,
-    primaryColor: Colors.black,
-    colorScheme: ColorScheme.dark(),
-    appBarTheme: AppBarTheme(
+    scaffoldBackgroundColor: const Color.fromARGB(255, 18, 18, 18),
+    primaryColor: const Color.fromARGB(255, 29, 29, 29),
+    colorScheme: const ColorScheme.dark(),
+    appBarTheme: const AppBarTheme(
         backgroundColor: Colors.black,
         toolbarTextStyle: TextStyle(color: Colors.white)),
-    iconTheme:
-        IconThemeData(color: Color.fromARGB(255, 230, 20, 20), opacity: 0.8),
+    iconTheme: const IconThemeData(
+      color: Color(0xffffd44c),
+    ),
   );
 
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.grey[200],
     primaryColor: Colors.white,
-    colorScheme: ColorScheme.light(),
-    appBarTheme: AppBarTheme(
+    colorScheme: const ColorScheme.light(),
+    appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
         toolbarTextStyle: TextStyle(color: Colors.black)),
-    iconTheme:
-        IconThemeData(color: Color.fromARGB(255, 212, 211, 211), opacity: 0.8),
+    iconTheme: const IconThemeData(
+        color: Color.fromARGB(255, 212, 211, 211), opacity: 0.8),
   );
 }

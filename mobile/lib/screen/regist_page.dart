@@ -29,22 +29,20 @@ class _RegistPageState extends State<RegistPage> {
       key: _formKey,
       child: Scaffold(
         appBar: AppBar(
+            iconTheme: Theme.of(context).iconTheme,
+            titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
             centerTitle: true,
             leading: IconButton(
               onPressed: () {
                 Navigator.pop(context, true);
               },
               icon: const Icon(Icons.arrow_back),
-              color: Colors.black,
             ),
             title: const Text(
               "Let's Gets Started",
-              style: TextStyle(
-                color: Colors.black,
-              ),
             ),
             actions: const [],
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             elevation: 0),
         body: SingleChildScrollView(
           child: Column(
@@ -187,6 +185,7 @@ class _RegistPageState extends State<RegistPage> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           try {
+                            errorMessage = '';
                             await AuthServices.createUser(
                               emailController.text.trim(),
                               passwordController.text.trim(),

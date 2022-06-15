@@ -5,7 +5,6 @@ import 'package:mobile/screen/change_password.dart';
 import 'package:mobile/screen/contact_us.dart';
 import 'package:mobile/screen/edit_profile.dart';
 import 'package:mobile/screen/relog_page.dart';
-
 import '../../widget/change_theme_button_widget.dart';
 
 class Settings extends StatefulWidget {
@@ -22,14 +21,16 @@ class _SettingsState extends State<Settings> {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         iconTheme: Theme.of(context).iconTheme,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Settings',
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
+        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: w * .05, vertical: h * .01),
@@ -46,7 +47,7 @@ class _SettingsState extends State<Settings> {
               alignment: Alignment.center,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -122,7 +123,7 @@ class _SettingsState extends State<Settings> {
               alignment: Alignment.center,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -154,9 +155,9 @@ class _SettingsState extends State<Settings> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    title: Text('Dark Theme'),
-                    leading: Icon(Icons.dark_mode),
-                    trailing: ChangeThemeButtonWidget(),
+                    title: const Text('Dark Theme'),
+                    leading: const Icon(Icons.dark_mode),
+                    trailing: const ChangeThemeButtonWidget(),
                   )
                 ],
               ),

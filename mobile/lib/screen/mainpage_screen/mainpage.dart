@@ -36,6 +36,7 @@ class _MainPageState extends State<MainPage> {
           Profile(user?.uid),
         ],
         items: _navBarsItems(),
+        backgroundColor: Theme.of(context).primaryColor,
         navBarStyle: NavBarStyle.style6,
       ),
     );
