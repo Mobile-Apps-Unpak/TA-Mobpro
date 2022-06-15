@@ -31,7 +31,6 @@ class _StudyState extends State<Study> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffd44c),
       body: getName(),
     );
   }
@@ -78,8 +77,8 @@ class _StudyState extends State<Study> {
                 Container(
                   height: h * .1,
                   width: w * 1,
-                  decoration: const BoxDecoration(
-                    color: Color(0xffF5F7F9),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(20),
                     ),
@@ -94,8 +93,8 @@ class _StudyState extends State<Study> {
                     Container(
                       height: h * .25,
                       width: w * .4,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffF5F7F9),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.all(
                           Radius.circular(20),
                         ),
@@ -105,8 +104,8 @@ class _StudyState extends State<Study> {
                     Container(
                       height: h * .2,
                       width: w * .45,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffF5F7F9),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
                           bottomRight: Radius.circular(20),
@@ -154,8 +153,8 @@ class _StudyState extends State<Study> {
                     Container(
                       height: h * .25,
                       width: w * .4,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffF5F7F9),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.all(
                           Radius.circular(20),
                         ),
@@ -165,8 +164,8 @@ class _StudyState extends State<Study> {
                     Container(
                       height: h * .2,
                       width: w * .45,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffF5F7F9),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
                           bottomRight: Radius.circular(20),

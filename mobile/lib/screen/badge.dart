@@ -26,9 +26,10 @@ class _BadgeState extends State<Badge> {
         centerTitle: true,
         title: const Text(
           'Badge',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(fontSize: 18),
         ),
         backgroundColor: Colors.transparent,
+        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
         elevation: 0,
       ),
       body: ListView(
@@ -50,7 +51,7 @@ class _BadgeState extends State<Badge> {
                         color: const Color(0xffE2A042),
                         border: Border.all(
                           width: 2.0,
-                          color: const Color(0xff808080),
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                       child: const Text(
@@ -78,7 +79,7 @@ class _BadgeState extends State<Badge> {
                         color: const Color(0xffDBE4EB),
                         border: Border.all(
                           width: 2.0,
-                          color: const Color(0xff808080),
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                       child: const Text(
@@ -106,7 +107,7 @@ class _BadgeState extends State<Badge> {
                         color: const Color(0xffFFC100),
                         border: Border.all(
                           width: 2.0,
-                          color: const Color(0xff808080),
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                       child: const Text(
