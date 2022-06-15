@@ -13,15 +13,15 @@ class PaymentMethod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         leading: const SizedBox(),
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Payment Method',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(fontSize: 18),
         ),
         elevation: 0,
+        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
@@ -32,7 +32,7 @@ class PaymentMethod extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white60,
+                color: Theme.of(context).primaryColor,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,7 +82,7 @@ class PaymentMethod extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white60,
+                color: Theme.of(context).primaryColor,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +153,6 @@ class Method extends StatelessWidget {
       title,
       style: const TextStyle(
         fontSize: 18,
-        color: Colors.black,
         fontWeight: FontWeight.w500,
       ),
     );

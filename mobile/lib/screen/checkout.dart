@@ -14,15 +14,15 @@ class Checkout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         centerTitle: true,
         leading: const SizedBox(),
         title: const Text(
           'Checkout',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(fontSize: 18),
         ),
         elevation: 0,
+        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
@@ -32,7 +32,7 @@ class Checkout extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white60,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(

@@ -41,10 +41,11 @@ class _ProfileState extends State<Profile> {
         centerTitle: true,
         title: const Text(
           'Profile',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(fontSize: 18),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
       ),
       body: getUser(),
     );
@@ -77,12 +78,14 @@ class _ProfileState extends State<Profile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Center(
+                Center(
                   child: CircleAvatar(
+                    backgroundColor: Theme.of(context).primaryColor,
                     radius: 50,
                     child: Icon(
                       Icons.person,
                       size: 80,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                   ),
                 ),
@@ -96,7 +99,7 @@ class _ProfileState extends State<Profile> {
                       Container(
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: Colors.white70,
+                          color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
@@ -178,7 +181,6 @@ class ItemList extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Container(
-      color: Colors.white70,
       padding: EdgeInsets.symmetric(horizontal: w * .020, vertical: h * .010),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -186,7 +188,6 @@ class ItemList extends StatelessWidget {
           Icon(
             icons,
             size: 30,
-            color: Colors.grey,
           ),
           SizedBox(width: w * .050),
           Column(
