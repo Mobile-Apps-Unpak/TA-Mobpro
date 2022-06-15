@@ -58,5 +58,18 @@ class MyThemes {
         toolbarTextStyle: TextStyle(color: Colors.black)),
     iconTheme: const IconThemeData(
         color: Color.fromARGB(255, 212, 211, 211), opacity: 0.8),
+    inputDecorationTheme: const InputDecorationTheme(
+      labelStyle: TextStyle(color: Colors.black),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xffffd44c),
+        ),
+      ),
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Color(0xffffd44c),
+      selectionColor: Color(0xffffd44c),
+      selectionHandleColor: Color(0xffffd44c),
+    ),
   );
 }
