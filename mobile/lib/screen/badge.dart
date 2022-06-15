@@ -24,15 +24,6 @@ class _BadgeState extends State<Badge> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
         title: const Text(
           'Badge',
           style: TextStyle(color: Colors.black),

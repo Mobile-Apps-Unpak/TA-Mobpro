@@ -6,6 +6,8 @@ import 'package:mobile/screen/contact_us.dart';
 import 'package:mobile/screen/edit_profile.dart';
 import 'package:mobile/screen/relog_page.dart';
 
+import '../../widget/change_theme_button_widget.dart';
+
 class Settings extends StatefulWidget {
   final String? id;
   const Settings(this.id, {Key? key}) : super(key: key);
@@ -20,12 +22,11 @@ class _SettingsState extends State<Settings> {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        iconTheme: Theme.of(context).iconTheme,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Settings',
-          style: TextStyle(color: Colors.black),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -117,7 +118,7 @@ class _SettingsState extends State<Settings> {
             ),
             Container(
               padding: const EdgeInsets.all(5),
-              height: h * .181,
+              height: h * .262,
               alignment: Alignment.center,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -149,6 +150,14 @@ class _SettingsState extends State<Settings> {
                       );
                     },
                   ),
+                  ListTile(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    title: Text('Dark Theme'),
+                    leading: Icon(Icons.dark_mode),
+                    trailing: ChangeThemeButtonWidget(),
+                  )
                 ],
               ),
             ),
