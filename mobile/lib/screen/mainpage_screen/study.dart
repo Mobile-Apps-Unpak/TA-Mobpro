@@ -129,7 +129,12 @@ class _StudyState extends State<Study> {
                             Container(
                               alignment: Alignment.bottomRight,
                               child: TextButton(
-                                child: const Text('Click Here'),
+                                child: Text(
+                                  'Click Here',
+                                  style: TextStyle(
+                                    color: Theme.of(context).iconTheme.color,
+                                  ),
+                                ),
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
@@ -189,7 +194,12 @@ class _StudyState extends State<Study> {
                             Container(
                               alignment: Alignment.bottomRight,
                               child: TextButton(
-                                child: const Text('Click Here'),
+                                child: Text(
+                                  'Click Here',
+                                  style: TextStyle(
+                                    color: Theme.of(context).iconTheme.color,
+                                  ),
+                                ),
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(

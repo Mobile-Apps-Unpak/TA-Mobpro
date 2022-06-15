@@ -24,11 +24,28 @@ class MyThemes {
     scaffoldBackgroundColor: const Color.fromARGB(255, 18, 18, 18),
     primaryColor: const Color.fromARGB(255, 29, 29, 29),
     colorScheme: const ColorScheme.dark(),
+    textTheme: const TextTheme(
+      bodyText1: TextStyle(color: Colors.white),
+      bodyText2: TextStyle(color: Colors.white),
+    ),
     appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         toolbarTextStyle: TextStyle(color: Colors.white)),
     iconTheme: const IconThemeData(
       color: Color(0xffffd44c),
+    ),
+    inputDecorationTheme: const InputDecorationTheme(
+      labelStyle: TextStyle(color: Colors.white),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xffffd44c),
+        ),
+      ),
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Color(0xffffd44c),
+      selectionColor: Color(0xffffd44c),
+      selectionHandleColor: Color(0xffffd44c),
     ),
   );
 

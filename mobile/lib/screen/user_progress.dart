@@ -65,7 +65,10 @@ class _UserProgressState extends State<UserProgress> {
           debugPrint(e.toString());
         }
 
-        return const Center(child: CircularProgressIndicator());
+        return Center(
+            child: CircularProgressIndicator(
+          color: Theme.of(context).iconTheme.color,
+        ));
       },
     );
   }
@@ -73,22 +76,25 @@ class _UserProgressState extends State<UserProgress> {
   Widget noProgress(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/vector.png', width: w * 0.6, height: h * 0.3),
-          SizedBox(height: h * .02),
-          const Text(
-            'No Progress!',
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: h * .02),
-          const Text(
-            'You Must Read Modul First!',
-            style: TextStyle(fontSize: 14),
-          ),
-        ],
+    return Container(
+      color: Theme.of(context).backgroundColor,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/vector.png', width: w * 0.6, height: h * 0.3),
+            SizedBox(height: h * .02),
+            const Text(
+              'No Progress!',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: h * .02),
+            const Text(
+              'You Must Read Modul First!',
+              style: TextStyle(fontSize: 14),
+            ),
+          ],
+        ),
       ),
     );
   }

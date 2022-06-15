@@ -57,7 +57,11 @@ class _EditProfileState extends State<EditProfile> {
         } catch (e) {
           debugPrint(e.toString());
         }
-        return const Center(child: CircularProgressIndicator());
+        return Center(
+          child: CircularProgressIndicator(
+            color: Theme.of(context).iconTheme.color,
+          ),
+        );
       },
     );
   }

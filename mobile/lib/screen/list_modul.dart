@@ -48,7 +48,9 @@ class _ListModulState extends State<ListModul> {
                       .toList());
             }
           } else {
-            return const CircularProgressIndicator();
+            return CircularProgressIndicator(
+              color: Theme.of(context).iconTheme.color,
+            );
           }
         },
       ),
@@ -79,16 +81,19 @@ class _ListModulState extends State<ListModul> {
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('You Must Read Chapter ' +
-                    (numIndex - 1).toString() +
-                    ' First'),
+                content: Text(
+                  'You Must Read Chapter ' +
+                      (numIndex - 1).toString() +
+                      ' First',
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
               ),
             );
           }
         },
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -115,8 +120,8 @@ class _ListModulState extends State<ListModul> {
                   children: [
                     Text(
                       'Chapter ' + index!,
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1?.color,
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
                       ),
@@ -126,7 +131,7 @@ class _ListModulState extends State<ListModul> {
                     ),
                     Text(
                       title!,
-                      style: const TextStyle(color: Colors.black54),
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ],
                 ),

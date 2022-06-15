@@ -70,8 +70,8 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(100),
-                                              color: const Color.fromARGB(
-                                                  255, 253, 235, 179),
+                                              color: Theme.of(context)
+                                                  .primaryColor,
                                             ),
                                             child: Image.asset(
                                               "assets/modul_home.png",
@@ -102,8 +102,8 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(100),
-                                              color: const Color.fromARGB(
-                                                  255, 253, 235, 179),
+                                              color: Theme.of(context)
+                                                  .primaryColor,
                                             ),
                                             child: Image.asset(
                                               "assets/video_home.png",
@@ -139,8 +139,8 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(100),
-                                              color: const Color.fromARGB(
-                                                  255, 253, 235, 179),
+                                              color: Theme.of(context)
+                                                  .primaryColor,
                                             ),
                                             child: const SizedBox(
                                               child: Icon(
@@ -172,8 +172,8 @@ class HomePage extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(100),
-                                              color: const Color.fromARGB(
-                                                  255, 253, 235, 179),
+                                              color: Theme.of(context)
+                                                  .primaryColor,
                                             ),
                                             child: Image.asset(
                                               "assets/lainnya_home.png",

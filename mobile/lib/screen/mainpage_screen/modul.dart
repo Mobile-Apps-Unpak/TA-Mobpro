@@ -26,7 +26,6 @@ class Modul extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            //color: Colors.blue,
             padding: EdgeInsets.fromLTRB(w * .08, h * .06, w * .08, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
