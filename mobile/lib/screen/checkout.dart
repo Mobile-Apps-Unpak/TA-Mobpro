@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile/utils/payment_service.dart';
 import 'package:mobile/utils/userdata.dart';
 
+import '../widget/appbar_without_leading.dart';
+
 class Checkout extends StatelessWidget {
   final String? id;
   final String badgeType;
@@ -14,17 +16,7 @@ class Checkout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: const SizedBox(),
-        title: const Text(
-          'Checkout',
-          style: TextStyle(fontSize: 18),
-        ),
-        elevation: 0,
-        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: appBarWithoutLeading(context, 'Checkout'),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

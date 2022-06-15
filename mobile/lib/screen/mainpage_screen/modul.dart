@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/webview/modul_view.dart';
 import 'package:mobile/utils/progress_data.dart';
+import 'package:mobile/widget/appbar_with_leading.dart';
 
 class Modul extends StatelessWidget {
   const Modul(this.id, this.index, this.title, this.url, this.currentProgress,
@@ -20,20 +21,8 @@ class Modul extends StatelessWidget {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 212, 76),
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.grey,
-          ),
-        ),
-        backgroundColor: const Color.fromARGB(255, 255, 212, 76),
-        elevation: 0,
-      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: appBarWithLeading(context, 'Modul'),
       body: Stack(
         children: [
           Container(

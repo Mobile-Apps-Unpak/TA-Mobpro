@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/utils/report_app.dart';
+import 'package:mobile/widget/appbar_with_leading.dart';
 
 class ContactUs extends StatefulWidget {
   const ContactUs({Key? key}) : super(key: key);
@@ -21,27 +22,8 @@ class _ContactUsState extends State<ContactUs> {
     return Form(
       key: _formKey,
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
-        appBar: AppBar(
-          //Button Back to Previous Page
-          centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context, true);
-            },
-            icon: const Icon(Icons.arrow_back),
-            color: Colors.black,
-          ),
-          title: const Text(
-            "Contact Us",
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-          actions: const [],
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        appBar: appBarWithLeading(context, 'Contact Us'),
         body: Column(
           children: [
             const Text(

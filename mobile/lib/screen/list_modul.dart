@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile/screen/mainpage_screen/modul.dart';
 import 'package:mobile/utils/progress_data.dart';
 
+import '../widget/appbar_with_leading.dart';
+
 class ListModul extends StatefulWidget {
   final String? id;
   const ListModul(this.id, {Key? key}) : super(key: key);
@@ -24,24 +26,7 @@ class _ListModulState extends State<ListModul> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
-        title: const Text(
-          'List Modul',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: appBarWithLeading(context, 'List Modul'),
       body: StreamBuilder<QuerySnapshot>(
         stream: modul.orderBy('index', descending: false).snapshots(),
         builder: (context, snapshot) {

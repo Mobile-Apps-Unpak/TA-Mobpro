@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import '../widget/appbar_with_leading.dart';
+
 class UserProgress extends StatefulWidget {
   final String? id;
   const UserProgress(this.id, {Key? key}) : super(key: key);
@@ -43,22 +45,7 @@ class _UserProgressState extends State<UserProgress> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context, true);
-          },
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.black,
-        ),
-        centerTitle: true,
-        title: const Text(
-          'Study Progress',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: appBarWithLeading(context, 'Progress'),
       body: getProgress(),
     );
   }

@@ -5,7 +5,8 @@ import 'package:mobile/screen/change_password.dart';
 import 'package:mobile/screen/contact_us.dart';
 import 'package:mobile/screen/edit_profile.dart';
 import 'package:mobile/screen/relog_page.dart';
-import '../../widget/change_theme_button_widget.dart';
+import 'package:mobile/widget/appbar_without_leading.dart';
+import 'package:mobile/widget/change_theme_button_widget.dart';
 
 class Settings extends StatefulWidget {
   final String? id;
@@ -22,16 +23,7 @@ class _SettingsState extends State<Settings> {
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: AppBar(
-        iconTheme: Theme.of(context).iconTheme,
-        centerTitle: true,
-        title: const Text(
-          'Settings',
-        ),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
-      ),
+      appBar: appBarWithoutLeading(context, 'Settings'),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: w * .05, vertical: h * .01),
         child: ListView(

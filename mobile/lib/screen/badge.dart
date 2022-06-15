@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/screen/payment_method.dart';
+import 'package:mobile/widget/appbar_without_leading.dart';
 
 class Badge extends StatefulWidget {
   final String? id;
@@ -22,16 +23,7 @@ class _BadgeState extends State<Badge> {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'Badge',
-          style: TextStyle(fontSize: 18),
-        ),
-        backgroundColor: Colors.transparent,
-        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
-        elevation: 0,
-      ),
+      appBar: appBarWithoutLeading(context, 'Badge'),
       body: ListView(
         children: [
           Container(

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/utils/userdata.dart';
+import 'package:mobile/widget/appbar_with_leading.dart';
 
 class EditProfile extends StatefulWidget {
   final String? id;
@@ -35,26 +36,11 @@ class _EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.black,
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Edit Profile',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: appBarWithLeading(context, 'Edit Profile'),
       body: ListView(
         children: [
-          Expanded(
-            child: getUser(),
-          ),
+          getUser(),
         ],
       ),
     );
@@ -86,13 +72,15 @@ class _EditProfileState extends State<EditProfile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
+              Center(
                 child: CircleAvatar(
                   radius: 50,
                   child: Icon(
                     Icons.person,
                     size: 80,
+                    color: Theme.of(context).iconTheme.color,
                   ),
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
               ),
               SizedBox(

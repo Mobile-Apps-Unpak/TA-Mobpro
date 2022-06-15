@@ -25,7 +25,7 @@ class MyThemes {
     primaryColor: const Color.fromARGB(255, 29, 29, 29),
     colorScheme: const ColorScheme.dark(),
     appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         toolbarTextStyle: TextStyle(color: Colors.white)),
     iconTheme: const IconThemeData(
       color: Color(0xffffd44c),
@@ -37,7 +37,7 @@ class MyThemes {
     primaryColor: Colors.white,
     colorScheme: const ColorScheme.light(),
     appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         toolbarTextStyle: TextStyle(color: Colors.black)),
     iconTheme: const IconThemeData(
         color: Color.fromARGB(255, 212, 211, 211), opacity: 0.8),

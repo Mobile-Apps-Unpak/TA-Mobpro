@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mobile/widget/appbar_without_leading.dart';
 
 class Profile extends StatefulWidget {
   final String? id;
@@ -37,16 +38,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'Profile',
-          style: TextStyle(fontSize: 18),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
-      ),
+      appBar: appBarWithoutLeading(context, 'Profile'),
       body: getUser(),
     );
   }

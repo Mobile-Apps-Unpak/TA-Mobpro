@@ -3,6 +3,8 @@ import 'package:mobile/utils/auth_service.dart';
 import 'package:mobile/utils/progress_data.dart';
 import 'package:mobile/utils/userdata.dart';
 
+import '../widget/appbar_with_leading.dart';
+
 class RegistPage extends StatefulWidget {
   const RegistPage({Key? key}) : super(key: key);
 
@@ -28,22 +30,7 @@ class _RegistPageState extends State<RegistPage> {
     return Form(
       key: _formKey,
       child: Scaffold(
-        appBar: AppBar(
-            iconTheme: Theme.of(context).iconTheme,
-            titleTextStyle: Theme.of(context).appBarTheme.toolbarTextStyle,
-            centerTitle: true,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context, true);
-              },
-              icon: const Icon(Icons.arrow_back),
-            ),
-            title: const Text(
-              "Let's Gets Started",
-            ),
-            actions: const [],
-            backgroundColor: Colors.transparent,
-            elevation: 0),
+        appBar: appBarWithLeading(context, 'Let\'s Gets Started'),
         body: SingleChildScrollView(
           child: Column(
             children: [
