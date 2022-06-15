@@ -43,6 +43,7 @@ class _ModulViewStackState extends State<ModulViewStack> {
         ),
         if (loadingPercentage < 100)
           LinearProgressIndicator(
+            color: Theme.of(context).iconTheme.color,
             value: loadingPercentage / 100.0,
           ),
       ],

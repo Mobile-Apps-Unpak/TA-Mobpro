@@ -22,13 +22,13 @@ class _VideoViewAppState extends State<VideoView> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () => Navigator.pop(context),
-          color: Colors.black,
+          color: Theme.of(context).iconTheme.color,
         ),
-        title: const Text(
+        title: Text(
           'Video',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Theme.of(context).textTheme.bodyText2?.color),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         actions: [
           NavigationControls(controller: controller),
         ],
