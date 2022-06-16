@@ -48,11 +48,6 @@ class MyThemes {
       selectionColor: Color(0xffffd44c),
       selectionHandleColor: Color(0xffffd44c),
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        onPrimary: Colors.white,
-      ),
-    ),
   );
 
   static final lightTheme = ThemeData(
@@ -63,12 +58,12 @@ class MyThemes {
         backgroundColor: Colors.transparent,
         toolbarTextStyle: TextStyle(color: Colors.black)),
     iconTheme: const IconThemeData(
-        color: Color.fromARGB(255, 66, 165, 245), opacity: 0.8),
+        color: Color.fromARGB(255, 212, 211, 211), opacity: 0.8),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: TextStyle(color: Colors.black),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Colors.blue.shade400,
+          color: Color(0xffffd44c),
         ),
       ),
       prefixIconColor: Colors.blue[400],
