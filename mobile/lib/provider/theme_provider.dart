@@ -59,14 +59,14 @@ class MyThemes {
         toolbarTextStyle: TextStyle(color: Colors.black)),
     iconTheme: const IconThemeData(
         color: Color.fromARGB(255, 212, 211, 211), opacity: 0.8),
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme: const InputDecorationTheme(
       labelStyle: TextStyle(color: Colors.black),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: Color(0xffffd44c),
         ),
       ),
-      prefixIconColor: Colors.blue[400],
+      prefixIconColor: Colors.blue,
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xffffd44c),
@@ -78,6 +78,5 @@ class MyThemes {
         onPrimary: Colors.black,
       ),
     ),
-    splashColor: Colors.blue.shade400,
   );
 }
