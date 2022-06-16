@@ -47,6 +47,11 @@ class MyThemes {
       selectionColor: Color(0xffffd44c),
       selectionHandleColor: Color(0xffffd44c),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        onPrimary: Colors.white,
+      ),
+    ),
   );
 
   static final lightTheme = ThemeData(
@@ -65,11 +70,17 @@ class MyThemes {
           color: Color(0xffffd44c),
         ),
       ),
+      prefixIconColor: Color(0xffffd44c),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xffffd44c),
       selectionColor: Color(0xffffd44c),
       selectionHandleColor: Color(0xffffd44c),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        onPrimary: Colors.black,
+      ),
     ),
   );
 }
