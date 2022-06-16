@@ -30,6 +30,29 @@ class _SettingsState extends State<Settings> {
           children: [
             const Padding(
               padding: EdgeInsets.all(5),
+              child:
+                  Text('Theme', style: TextStyle(fontWeight: FontWeight.w500)),
+            ),
+            Container(
+              padding: const EdgeInsets.all(5),
+              height: h * .090,
+              alignment: Alignment.center,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ListTile(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                title: const Text('Dark Theme'),
+                leading: const Icon(Icons.dark_mode),
+                trailing: const ChangeThemeButtonWidget(),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(5),
               child: Text('Account Setting',
                   style: TextStyle(fontWeight: FontWeight.w500)),
             ),
@@ -111,7 +134,7 @@ class _SettingsState extends State<Settings> {
             ),
             Container(
               padding: const EdgeInsets.all(5),
-              height: h * .262,
+              height: h * .180,
               alignment: Alignment.center,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -143,14 +166,6 @@ class _SettingsState extends State<Settings> {
                       );
                     },
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    title: const Text('Dark Theme'),
-                    leading: const Icon(Icons.dark_mode),
-                    trailing: const ChangeThemeButtonWidget(),
-                  )
                 ],
               ),
             ),

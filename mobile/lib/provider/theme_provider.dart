@@ -41,11 +41,17 @@ class MyThemes {
           color: Color(0xffffd44c),
         ),
       ),
+      prefixIconColor: Color(0xffffd44c),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xffffd44c),
       selectionColor: Color(0xffffd44c),
       selectionHandleColor: Color(0xffffd44c),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        onPrimary: Colors.white,
+      ),
     ),
   );
 
@@ -57,6 +63,26 @@ class MyThemes {
         backgroundColor: Colors.transparent,
         toolbarTextStyle: TextStyle(color: Colors.black)),
     iconTheme: const IconThemeData(
-        color: Color.fromARGB(255, 212, 211, 211), opacity: 0.8),
+        color: Color.fromARGB(255, 66, 165, 245), opacity: 0.8),
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle: TextStyle(color: Colors.black),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.blue.shade400,
+        ),
+      ),
+      prefixIconColor: Colors.blue[400],
+    ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: Colors.blue[400],
+      selectionColor: Colors.blue[400],
+      selectionHandleColor: Colors.blue[400],
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        onPrimary: Colors.black,
+      ),
+    ),
+    splashColor: Colors.blue.shade400,
   );
 }

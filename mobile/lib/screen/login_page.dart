@@ -66,6 +66,12 @@ class _LoginPageState extends State<LoginPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(
+                                color: Color(0xffffd44c),
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(height: h * .022),
@@ -85,6 +91,12 @@ class _LoginPageState extends State<LoginPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(
+                                color: Color(0xffffd44c),
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -94,10 +106,9 @@ class _LoginPageState extends State<LoginPage> {
                   AbsorbPointer(
                     absorbing: !_enableAbsorb,
                     child: ElevatedButton(
-                      child: const Text(
+                      child: Text(
                         "LOG IN",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w300),
+                        style: TextStyle(fontWeight: FontWeight.w300),
                       ),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(w * 0.38, h * 0.055),
