@@ -73,10 +73,10 @@ class MyThemes {
       ),
       prefixIconColor: Colors.blue[400],
     ),
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: Colors.blue[400],
-      selectionColor: Colors.blue[400],
-      selectionHandleColor: Colors.blue[400],
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Color(0xffffd44c),
+      selectionColor: Color(0xffffd44c),
+      selectionHandleColor: Color(0xffffd44c),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
