@@ -140,7 +140,11 @@ class _BadgeState extends State<Badge> {
                           .toList());
                 }
               } else {
-                return const Center(child: CircularProgressIndicator());
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                );
               }
             },
           ),

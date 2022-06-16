@@ -41,6 +41,7 @@ class MyThemes {
           color: Color(0xffffd44c),
         ),
       ),
+      prefixIconColor: Color(0xffffd44c),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xffffd44c),
@@ -51,6 +52,15 @@ class MyThemes {
       style: ElevatedButton.styleFrom(
         onPrimary: Colors.white,
       ),
+    ),
+    snackBarTheme: const SnackBarThemeData(
+      backgroundColor: Color.fromARGB(255, 29, 29, 29),
+      contentTextStyle: TextStyle(
+        color: Colors.white,
+      ),
+    ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Color(0xffffd44c),
     ),
   );
 
@@ -81,6 +91,9 @@ class MyThemes {
       style: ElevatedButton.styleFrom(
         onPrimary: Colors.black,
       ),
+    ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Color(0xffffd44c),
     ),
   );
 }

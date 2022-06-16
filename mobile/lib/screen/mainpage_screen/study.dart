@@ -129,10 +129,10 @@ class _StudyState extends State<Study> {
                             Container(
                               alignment: Alignment.bottomRight,
                               child: TextButton(
-                                child: Text(
+                                child: const Text(
                                   'Click Here',
                                   style: TextStyle(
-                                    color: Theme.of(context).iconTheme.color,
+                                    color: Color(0xffffd44c),
                                   ),
                                 ),
                                 onPressed: () {
@@ -194,10 +194,10 @@ class _StudyState extends State<Study> {
                             Container(
                               alignment: Alignment.bottomRight,
                               child: TextButton(
-                                child: Text(
+                                child: const Text(
                                   'Click Here',
                                   style: TextStyle(
-                                    color: Theme.of(context).iconTheme.color,
+                                    color: Color(0xffffd44c),
                                   ),
                                 ),
                                 onPressed: () {

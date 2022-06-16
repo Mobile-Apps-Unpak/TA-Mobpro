@@ -108,17 +108,29 @@ class _SettingsState extends State<Settings> {
                           content: const Text('Are You Sure?'),
                           actions: [
                             TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (_) => RelogPage(widget.id),
-                                    ),
-                                  );
-                                },
-                                child: const Text('Yes')),
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) => RelogPage(widget.id),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                'Yes',
+                                style: TextStyle(
+                                  color: Color(0xffffd44c),
+                                ),
+                              ),
+                            ),
                             TextButton(
-                                onPressed: () => Navigator.pop(context, "No"),
-                                child: const Text('No')),
+                              onPressed: () => Navigator.pop(context, "No"),
+                              child: const Text(
+                                'No',
+                                style: TextStyle(
+                                  color: Color(0xffffd44c),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       );

@@ -61,7 +61,7 @@ class _RegistPageState extends State<RegistPage> {
                             const EdgeInsets.symmetric(horizontal: 10.0),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xffffd44c),
                           ),
                         ),
@@ -86,7 +86,7 @@ class _RegistPageState extends State<RegistPage> {
                             const EdgeInsets.symmetric(horizontal: 10.0),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xffffd44c),
                           ),
                         ),
@@ -113,7 +113,7 @@ class _RegistPageState extends State<RegistPage> {
                             const EdgeInsets.symmetric(horizontal: 10.0),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xffffd44c),
                           ),
                         ),
@@ -138,7 +138,7 @@ class _RegistPageState extends State<RegistPage> {
                             const EdgeInsets.symmetric(horizontal: 10.0),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xffffd44c),
                           ),
                         ),
@@ -166,7 +166,7 @@ class _RegistPageState extends State<RegistPage> {
                             const EdgeInsets.symmetric(horizontal: 10.0),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xffffd44c),
                           ),
                         ),
@@ -196,7 +196,7 @@ class _RegistPageState extends State<RegistPage> {
                             const EdgeInsets.symmetric(horizontal: 10.0),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xffffd44c),
                           ),
                         ),
