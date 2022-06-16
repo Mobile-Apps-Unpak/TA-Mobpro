@@ -59,6 +59,12 @@ class _RegistPageState extends State<RegistPage> {
                         ),
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 10.0),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Color(0xffffd44c),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: h * .03),
@@ -78,6 +84,12 @@ class _RegistPageState extends State<RegistPage> {
                         ),
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 10.0),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Color(0xffffd44c),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: h * .03),
@@ -99,6 +111,12 @@ class _RegistPageState extends State<RegistPage> {
                         ),
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 10.0),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Color(0xffffd44c),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: h * .03),
@@ -118,6 +136,12 @@ class _RegistPageState extends State<RegistPage> {
                         ),
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 10.0),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Color(0xffffd44c),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: h * .03),
@@ -140,6 +164,12 @@ class _RegistPageState extends State<RegistPage> {
                         ),
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 10.0),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Color(0xffffd44c),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: h * .03),
@@ -164,6 +194,12 @@ class _RegistPageState extends State<RegistPage> {
                         ),
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 10.0),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Color(0xffffd44c),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: h * .03),
@@ -203,9 +239,7 @@ class _RegistPageState extends State<RegistPage> {
                         }
                       },
                       child: const Text("Register",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w300)),
+                          style: TextStyle(fontWeight: FontWeight.w300)),
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(150, 40),
                         shape: const StadiumBorder(),
