@@ -41,7 +41,6 @@ class MyThemes {
           color: Color(0xffffd44c),
         ),
       ),
-      prefixIconColor: Color(0xffffd44c),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xffffd44c),
@@ -66,17 +65,11 @@ class MyThemes {
           color: Color(0xffffd44c),
         ),
       ),
-      prefixIconColor: Colors.blue,
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xffffd44c),
       selectionColor: Color(0xffffd44c),
       selectionHandleColor: Color(0xffffd44c),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        onPrimary: Colors.black,
-      ),
     ),
   );
 }
