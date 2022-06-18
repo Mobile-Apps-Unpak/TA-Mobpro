@@ -35,10 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //Logo Vector
-            Image.asset('assets/vector.png', width: w * 0.6, height: h * 0.3),
+            Image.asset('assets/images/vector.png',
+                width: w * 0.6, height: h * 0.3),
             Image.asset(
               //Logo Text
-              'assets/logo_study.png',
+              'assets/images/logo_study.png',
               width: w * 0.3,
               height: w * 0.2,
             )

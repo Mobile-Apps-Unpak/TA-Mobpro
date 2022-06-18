@@ -82,7 +82,8 @@ class _UserProgressState extends State<UserProgress> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/vector.png', width: w * 0.6, height: h * 0.3),
+            Image.asset('assets/images/vector.png',
+                width: w * 0.6, height: h * 0.3),
             SizedBox(height: h * .02),
             const Text(
               'No Progress!',
@@ -122,7 +123,8 @@ class _UserProgressState extends State<UserProgress> {
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 143, 120, 44),
                         image: const DecorationImage(
-                            image: AssetImage("assets/vector_progress.jpeg"),
+                            image: AssetImage(
+                                "assets/images/vector_progress.jpeg"),
                             opacity: .7,
                             fit: BoxFit.fill),
                         borderRadius: BorderRadius.circular(40)),
@@ -223,7 +225,8 @@ class _UserProgressState extends State<UserProgress> {
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 170, 143, 52),
                         image: const DecorationImage(
-                            image: AssetImage("assets/vector_progress.jpeg"),
+                            image: AssetImage(
+                                "assets/images/vector_progress.jpeg"),
                             opacity: .7,
                             fit: BoxFit.fill),
                         borderRadius: BorderRadius.circular(40)),

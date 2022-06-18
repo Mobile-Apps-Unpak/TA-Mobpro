@@ -47,7 +47,7 @@ class Modul extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20)),
                     margin: const EdgeInsets.all(20),
                     padding: const EdgeInsets.all(30),
-                    child: Image.asset("assets/vector_upload.png")),
+                    child: Image.asset("assets/images/vector_upload.png")),
               ],
             ),
           ),

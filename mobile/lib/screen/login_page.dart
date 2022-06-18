@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
               Column(
                 children: [
                   SizedBox(height: h * .1),
-                  Image.asset('assets/vector_login.png',
+                  Image.asset('assets/images/vector_login.png',
                       width: w * 0.6, height: h * 0.3),
                   SizedBox(height: h * .02),
                   const Text(

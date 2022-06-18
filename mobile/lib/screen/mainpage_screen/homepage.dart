@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("assets/logo_study2.png", width: w * 0.4),
+        title: Image.asset("assets/images/logo_study2.png", width: w * 0.4),
         backgroundColor: const Color.fromARGB(255, 255, 212, 76),
         elevation: 0,
       ),
@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Image.asset("assets/vector_home.png"),
+                  Image.asset("assets/images/vector_home.png"),
                 ],
               ),
             ),
@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                                                   .primaryColor,
                                             ),
                                             child: Image.asset(
-                                              "assets/modul_home.png",
+                                              "assets/images/modul_home.png",
                                             ),
                                           ),
                                         ),
@@ -106,7 +106,7 @@ class HomePage extends StatelessWidget {
                                                   .primaryColor,
                                             ),
                                             child: Image.asset(
-                                              "assets/video_home.png",
+                                              "assets/images/video_home.png",
                                             ),
                                           ),
                                         ),
@@ -176,7 +176,7 @@ class HomePage extends StatelessWidget {
                                                   .primaryColor,
                                             ),
                                             child: Image.asset(
-                                              "assets/lainnya_home.png",
+                                              "assets/images/lainnya_home.png",
                                             ),
                                           ),
                                         ),

@@ -83,7 +83,7 @@ class _StudyState extends State<Study> {
                       Radius.circular(20),
                     ),
                   ),
-                  child: Image.asset('assets/vector_study2.png'),
+                  child: Image.asset('assets/images/vector_study2.png'),
                 ),
                 SizedBox(
                   height: h * .02,
@@ -99,7 +99,7 @@ class _StudyState extends State<Study> {
                           Radius.circular(20),
                         ),
                       ),
-                      child: Image.asset('assets/vector_study3.png'),
+                      child: Image.asset('assets/images/vector_study3.png'),
                     ),
                     Container(
                       height: h * .2,
@@ -164,7 +164,7 @@ class _StudyState extends State<Study> {
                           Radius.circular(20),
                         ),
                       ),
-                      child: Image.asset('assets/vector_study4.png'),
+                      child: Image.asset('assets/images/vector_study4.png'),
                     ),
                     Container(
                       height: h * .2,

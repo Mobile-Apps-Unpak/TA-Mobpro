@@ -107,7 +107,7 @@ class _ListModulState extends State<ListModul> {
                   width: 50,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/book.png"),
+                      image: AssetImage("assets/images/book.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
