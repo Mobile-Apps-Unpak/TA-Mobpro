@@ -24,7 +24,6 @@ class AppInfo extends StatelessWidget {
               width: w * 0.3,
               height: w * 0.2,
             ),
-            const Text('©2022 Kelompok 1'),
           ],
         ),
       ),
